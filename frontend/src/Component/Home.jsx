@@ -3,9 +3,10 @@ import NavBar from './NavBar'
 import WrapperComponent from './WrapperComponent'
 function Home() {
 return (
-   <WrapperComponent>
-      <NavBar />
-   </WrapperComponent>
+   <>
+      <NavBar/>
+      <WrapperComponent/>
+    </>
 )
 }
 

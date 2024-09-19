@@ -5,11 +5,11 @@ import NavBar from '../Component/NavBar'
 export default function bmiPage() {
   return (
     <>
-    <NavBar />
-    <WrapperComponent>
-      <div>bmiPage</div>
-      <BMICalculator/>
-    </WrapperComponent>
+      <NavBar />
+      <WrapperComponent>
+        <div>bmiPage</div>
+        <BMICalculator />
+      </WrapperComponent>
     </>
   )
 }

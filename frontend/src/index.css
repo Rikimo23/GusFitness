@@ -3,11 +3,13 @@
 @tailwind utilities;
 body{
   --container-size: 80rem; /*This is 1280px */
+  --main-purple-color: #c10ace;
 }
 #contentWrapper{
   display: flex;
   max-width: var(--container-size);
-  --main-purple-color: #c10ace;
+  
+  padding-top: 3rem;
   height: 4000px; /*This is for testing purposes, and should be removed later */
 }
 #navbarContainer{

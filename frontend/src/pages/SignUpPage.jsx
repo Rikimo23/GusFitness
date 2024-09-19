@@ -4,10 +4,12 @@ import NavBar from '../Component/NavBar'
 import SignUpForm from '../Component/SignUpForm'
 export default function SignUpPage() {
   return (
-    <WrapperComponent>
-        <NavBar/>
+    <>
+      <NavBar />
+      <WrapperComponent>
         <div>SignUpPage</div>
-        <SignUpForm/>
-    </WrapperComponent>
+        <SignUpForm />
+      </WrapperComponent>
+    </>
   )
 }

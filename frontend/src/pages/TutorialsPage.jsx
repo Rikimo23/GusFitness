@@ -1,7 +1,13 @@
 import React from 'react'
-
+import WrapperComponent from '../component/WrapperComponent'
+import NavBar from '../Component/NavBar'
 export default function TutorialsPage() {
   return (
-    <div>TutorialsPage</div>
+    <>
+      <NavBar />
+      <WrapperComponent>
+        <div>TutorialsPage</div>
+      </WrapperComponent>
+    </>
   )
 }

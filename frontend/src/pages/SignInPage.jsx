@@ -4,11 +4,13 @@ import WrapperComponent from '../component/WrapperComponent'
 import NavBar from '../Component/NavBar'
 export default function SignInPage() {
   return (
-    <WrapperComponent>
-        <NavBar/>
-        <div>SignInPage</div>
-        <SignInForm />
-    </WrapperComponent>
+    <>
+      <NavBar/>
+      <WrapperComponent>        
+          <div>SignInPage</div>
+          <SignInForm />
+      </WrapperComponent>
+    </>
     
   )
 }
