@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+body{
+  --container-size: 80rem; /*This is 1280px */
+}
+#contentWrapper{
+  display: flex;
+  max-width: var(--container-size);
+  --main-purple-color: #c10ace;
+  height: 4000px; /*This is for testing purposes, and should be removed later */
+}
 #navbarContainer{
     display: grid;
     position: fixed;
@@ -9,26 +17,35 @@
     grid-template-areas:
     "left-area middle-area right-area";
     grid-template-columns: repeat(3, 1fr);
+    height: max-content;
     background-color: black;
-    padding-block: 1rem;
+    padding-block: 2rem;
 }
 #logoName{
     display: flex;
     margin-left: 1rem;
     color: white;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 800;    
+}
+
+#logoName, #navBarOptions > *{
+  text-wrap: nowrap;
 }
 #navBarOptions{
     display: flex;
     align-items: center;
-    outline: yellow solid 2px;
+    /* outline: yellow solid 2px; */
+    justify-content: center;
     grid-area: right-area;
     & ul {
         display: flex;        
         color: white;
-        gap: 10px;
-        outline: red solid 2px;
+        gap: 18px;
+        font-weight: 800;
+        & li > *:hover{
+          color: var(--main-purple-color);
+        }
     }
 }
 
@@ -59,6 +76,7 @@
     font-weight: 900;
     padding: 20px 20px;
     border-radius: 40px;
+    color: white;
     &:hover {
       background-color: #c10ace;
       cursor: pointer;

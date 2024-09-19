@@ -1,15 +1,14 @@
 import React from 'react'
+import SignInForm from '../Component/SignInForm'
 import WrapperComponent from '../component/WrapperComponent'
-import BMICalculator from '../Component/bmiCalculator'
 import NavBar from '../Component/NavBar'
-export default function bmiPage() {
+export default function SignInPage() {
   return (
-    <>
-    <NavBar />
     <WrapperComponent>
-      <div>bmiPage</div>
-      <BMICalculator/>
+        <NavBar/>
+        <div>SignInPage</div>
+        <SignInForm />
     </WrapperComponent>
-    </>
+    
   )
 }

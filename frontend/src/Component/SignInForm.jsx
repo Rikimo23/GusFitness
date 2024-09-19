@@ -14,7 +14,7 @@ export default function SignInForm() {
                 placeHolderText={"e.i somepassword5*"}
                 type={"password"}
             />            
-            <input type='submit'>Sign In</input>
+            <input type='submit' value="Sign In"/>
         </form>
     </div>
   )

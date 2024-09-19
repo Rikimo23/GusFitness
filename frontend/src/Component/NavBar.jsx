@@ -1,16 +1,17 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 export default function NavBar({navigationLinks}) {
   return (
     <div id="navbarContainer">
         <div id="logoName"><a href="/">Gus Gym & Fitness</a></div>
         <div id="navBarOptions">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Health</a></li>
-                <li><a href="./contactus">Contact Us</a></li>
-                <li><a href="/glossary">Glossary Index</a></li>
-                <li><a href="/">Sign In/ Sign Up</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Health</Link></li>
+                <li><Link to="/contactus">Contact Us</Link></li>
+                <li><Link to="/glossary">Glossary</Link></li>
+                <li><Link to="/signin">Sign In</Link></li>
+                <li><Link to="/signup">Sign Up</Link></li>
             </ul>
         </div>
     </div>

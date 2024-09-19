@@ -10,11 +10,13 @@ import App from './App.jsx'
 import './index.css'
 import ContactUsPage from './pages/ContactUsPage.jsx'
 import MuscleGroupsPage from './pages/MuscleGroupsPage.jsx'
-import NutrionPage from './pages/NutrionPage.jsx';
+import NutritionPage from './pages/NutritionPage.jsx';
 import TrackerPage from './pages/TrackerPage.jsx';
 import GlossaryPage from './pages/GlossaryPage.jsx';
 import BMIPage from './pages/bmiPage.jsx'
 import TutorialsPage from './pages/TutorialsPage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
+import SignInPage from './pages/SignInPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/nutritionandmealplan",
-    element: <NutrionPage/>
+    element: <NutritionPage/>
   },
   {
     path: "/tracker",
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
   {
     path: "/tutorials",
     element: <TutorialsPage/>
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage/>
+  },
+  {
+    path: "/signin",
+    element: <SignInPage/>
   },
 ])
 

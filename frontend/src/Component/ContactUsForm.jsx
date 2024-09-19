@@ -19,7 +19,7 @@ export default function ContactUsForm() {
                 placeHolderText={"e.i Gust"}
                 type={"email"}
             />
-            <input type='submit'>Register</input>
+            <input type='submit' value="Submit"/>
         </form>
     </div>
   )

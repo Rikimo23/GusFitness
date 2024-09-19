@@ -185,5 +185,4 @@ const glossary = [
     }
 ];
 
-
 export {glossary}
