@@ -19,7 +19,7 @@ export default function SignUpForm() {
                 placeHolderText={"e.i someDudeNinja@domain.com"}
                 type={"email"}
             />
-            <input type='submit' value="Sign Up" />
+            <input className='submitFormButton' type='submit' value="Sign Up" />
         </form>
     </div>
   )
