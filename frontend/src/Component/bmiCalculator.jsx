@@ -3,6 +3,7 @@ import InputComponent from './InputComponent';
 export default function BMIComponent() {
   return (
     <div id="bmiCalculator">
+      <h1>BMI Calculator</h1>
       <form action="/submit" method="post">
         <InputComponent
           type={"number"}
@@ -35,10 +36,10 @@ export default function BMIComponent() {
           placeHolderText={"e.i 140lbs"}
           limits={{ min: 1, max: 800 }}
         />
+        <span id="yourBMIText"><b>Your BMI Is: </b></span>
         <input id="submitButton" type="submit" value="Compute BMI"></input>
       </form>
     </div>
   );
 }
-
 
