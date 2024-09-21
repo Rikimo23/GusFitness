@@ -10,13 +10,23 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "roles")
+@Table(name = "Nutrition")
 @Entity
-public class Roles {
+public class Nutrition {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String role;
+    private Integer calories;
+    private Integer protein;
+    private Integer carbs;
+    private String snack1;
+    private String snack2;
+    private String breakfast;
+    private String lunch;
+    private String dinner;
+    private String snack3;
+    private Integer fats;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<MyAppUser> users;
+    private Set<Users> users;
 }
