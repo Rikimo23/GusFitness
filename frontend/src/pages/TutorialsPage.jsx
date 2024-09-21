@@ -7,6 +7,7 @@ export default function TutorialsPage() {
       <NavBar />
       <WrapperComponent>
         <div>TutorialsPage</div>
+        <h1>hello</h1>
       </WrapperComponent>
     </>
   )
