@@ -6,20 +6,18 @@ export default function ContactUsForm() {
         <form action="" method="post">
             <InputComponent 
                 name="First Name"            
-                placeHolderText={"Name"}
+                placeHolderText={"e.i Gust"}
                 type={"text"}
-                required
             />
             <InputComponent 
                 name="Last Name"            
-                placeHolderText={"Last Name (optional)"}
+                placeHolderText={"e.i Pegasus"}
                 type={"text"}
             />
             <InputComponent 
                 name="Email"            
-                placeHolderText={"email"}
+                placeHolderText={"e.i Gust"}
                 type={"email"}
-                required
             />
             <input className= "submitFormButton" type='submit' value="Submit"/>
         </form>

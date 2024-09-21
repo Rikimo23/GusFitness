@@ -17,7 +17,6 @@ body{
 }
 #contentWrapper:has(.bmiColumn){
   flex-direction: row;  
-  gap: 50px;
 }
 .bmiColumn{
   display: flex;
@@ -27,17 +26,12 @@ body{
   p{
     margin-bottom: 20px;
   }
-  /* This selects only the second child within the bmiColumn to target the div elements in it*/
-  >:nth-child(2) div{
-   /* add bottom margin of 10 px to divs except the last one */
-    &:not(:last-child){margin-bottom:10px;}
-  }
 }
 .bmiColumn:last-of-type{
   align-self: flex-end;
   /* outline: 4px solid red; */
   min-height: 100%;
-  overflow-x: clip;
+  /* overflow-x: hidden; */
 }
 h1{
   font-size: 1.2rem;
@@ -172,35 +166,6 @@ input[type="number"]::-webkit-inner-button{
 span{
   color: var(--main-purple-color);
 }
-#mealPlansContainer{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;  
-  @media(width <= 40rem){
-    grid-template-columns: 1fr;
-  }
-}
-.planForGender{
-  font-size: 2rem;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-.planMealBlock{
-  margin-bottom: 20px;
-}
-.personDetails{
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.mealsContainer{  
-  padding-left: 30px;
-  li{
-    list-style:disc;
-    &:not(:last-child){
-      margin-bottom: 6px;
-    }
-  }
-}
 #submitButton {
   background-color: var(--main-purple-color);
   font-weight: 900;
@@ -252,17 +217,18 @@ span{
 }
 #yourBMIText{
   display: flex;
-  margin-inline: auto;
-  
+  /* justify-self: center; */
+  /* align-self: center; */
 }
 .infoBlock{
   display: flex;
   position: relative;
-
+  gap: 50px;
   flex-direction: column;
-  & p{
-    max-width: 40rem;
-  }
+  p{
+    max-width: 2rem;
+    margin-bottom: 30px;
+  }  
 }
 /* Input element placeholder text styling */
 
@@ -286,34 +252,4 @@ span{
   display: flex; 
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 40px;
-}
-#glossaryDefinitionsContainer{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  justify-content: center;
-  margin-bottom: 50px;
-  @media (width <= 45rem){
-    grid-template-columns: 1fr;
-  }
-}
-.definitionSection{
-  display: flex;
-  flex-direction: column;
-  outline: 2px black solid;
-  border-radius: 10px;
-  padding: 20px;
-  > div:first-of-type{
-    margin-bottom: 10px;
-    font-size: 2rem;
-    font-weight: bolder;
-  }  
-}
-
-.definitionContainer{
-  > div:first-of-type{
-    font-weight: bolder;
-  }
-  margin-bottom: 10px;
 }

@@ -5,18 +5,18 @@ export default function SignUpForm() {
     <div>
         <form action="" method="post">
             <InputComponent 
-                name="Create User Name"            
-                placeHolderText={"User Name"}
+                name="User Name"            
+                placeHolderText={"e.i Gust"}
                 type={"text"}
             />
             <InputComponent 
-                name="Create Password"            
-                placeHolderText={"Password"}
+                name="Password"            
+                placeHolderText={"e.i somepassword5*"}
                 type={"password"}
             />
             <InputComponent 
                 name="Email"            
-                placeHolderText={"Email"}
+                placeHolderText={"e.i someDudeNinja@domain.com"}
                 type={"email"}
             />
             <input className='submitFormButton' type='submit' value="Sign Up" />

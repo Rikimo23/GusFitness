@@ -1,25 +1,20 @@
 import React from 'react'
-import InputComponent from './InputComponent'
-export default function SignUpForm() {
+import InputComponent from './InputComponent';
+export default function SignInForm() {
   return (
     <div>
         <form action="" method="post">
             <InputComponent 
-                name="User Name"            
-                placeHolderText={"e.i Gust"}
-                type={"text"}
+                name="Email"            
+                placeHolderText={"Email"}
+                type={"email"}
             />
             <InputComponent 
                 name="Password"            
-                placeHolderText={"e.i somepassword5*"}
+                placeHolderText={"Password"}
                 type={"password"}
-            />
-            <InputComponent 
-                name="Email"            
-                placeHolderText={"e.i someDudeNinja@domain.com"}
-                type={"email"}
-            />
-            <input className='submitFormButton' type='submit' value="Sign Up" />
+            />            
+            <input className='submitFormButton' type='submit' value="Sign In"/>
         </form>
     </div>
   )
