@@ -1,15 +1,60 @@
-import React from 'react'
+import {React, useState} from 'react'
 import InputComponent from './InputComponent';
 export default function BMIComponent() {
+  const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
+
+
+  const getAge =(age)=>{
+    setBmiInfo(
+      (currentData)=>({...currentData, ...{age: age}})
+    )
+  }
+  const getFeet =(feet)=>{
+    setBmiInfo(
+      (currentData)=>({...currentData, ...{feet: feet}})
+    )
+  }
+  const getInches =(inches)=>{
+    setBmiInfo(
+      (currentData)=>({...currentData, ...{inches: inches}})
+    )
+  }
+  const getLbs =(lbs)=>{
+    setBmiInfo(
+      (currentData)=>({...currentData, ...{lbs: lbs}})
+    )
+  }
+  const lbsToKilograms=(lbs)=>{
+    const kbMultiplier = 0.45359237
+    const kilograms = kbMultiplier * lbs
+    return kilograms
+  }
+  const feetToMeters =(feet)=>{
+    const meterMultiplier = 0.3048
+    const meters = feet * meterMultiplier
+    return meters 
+  }
+  const inchesToMeters =(inches)=>{
+    const meterMultiplier = 0.0254
+    const meters = inches * meterMultiplier
+    return meters 
+  }
+  const getBMI=(e)=>{
+    const convertedMeters = feetToMeters(bmiInfo.feet)+inchesToMeters(bmiInfo.inches)
+    const finalBmi = lbsToKilograms(bmiInfo.lbs) / (Math.pow(convertedMeters, 2))
+    setBmiInfo((currentInfo)=>({...currentInfo, ...{bmi: finalBmi.toFixed(1)}}))
+    e.preventDefault()
+  }
   return (
     <div id="bmiCalculator">
       <h1>BMI Calculator</h1>
-      <form action="/submit" method="post">
+      <form onSubmit={getBMI} method="post">
         <InputComponent
           type={"number"}
           name={"Age"}
           placeHolderText={"e.i 25"}
           inputModeVal="numeric"
+          getValue ={getAge}          
         />
         <div id="heightPart">
           <span>Height</span>
@@ -20,13 +65,15 @@ export default function BMIComponent() {
               placeHolderText={"e.i 5"}
               limits={{ min: 1, max: 10 }}
               inputMode={"numeric"}
+              getValue ={getFeet}
             />
             <InputComponent
               type={"number"}
               name={"Inches"}
               placeHolderText={"e.i 10"}
-              limits={{ min: 1, max: 12 }}
+              limits={{ min: 0, max: 12 }}
               inputMode={"numeric"}
+              getValue ={getInches}
             />
           </div>
         </div>
@@ -35,10 +82,11 @@ export default function BMIComponent() {
           name={"Weight"}
           placeHolderText={"e.i 140lbs"}
           limits={{ min: 1, max: 800 }}
+          getValue ={getLbs}
         />
-        <span id="yourBMIText"><b>Your BMI Is: </b></span>
         <input id="submitButton" type="submit" value="Compute BMI"></input>
       </form>
+        <span id="yourBMIText"><b>Your BMI Is: {bmiInfo.bmi}</b></span>
     </div>
   );
 }

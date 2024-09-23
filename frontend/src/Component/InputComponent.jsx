@@ -6,6 +6,7 @@ export default function InputComponent({
     type,
     limits = { min: 1, max: 100 },
     inputModeVal = "text",
+    getValue
   }){
     return (
       <div className="inputComponent">
@@ -13,19 +14,22 @@ export default function InputComponent({
         <input
           type={type}
           inputMode={inputModeVal}
-          placeHolder={placeHolderText}
+          placeholder={placeHolderText}
           min={limits.min}
           max={limits.max}
           required
           onChange={(e) => {
-            if (e.currentTarget.value > limits.max) {
-              e.currentTarget.value = limits.max;
+            
+            if(type==="number"){
+              if (e.currentTarget.value > limits.max){
+                e.currentTarget.value = limits.max;
+              }
+              const val = Math.floor(e.currentTarget.value)
+              e.currentTarget.value = val
             }
+            getValue(e.currentTarget.value)
           }}
-        ></input>
+        />
       </div>
     );
   };
-
-
-  

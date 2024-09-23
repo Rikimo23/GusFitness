@@ -12,7 +12,7 @@ body{
   max-width: var(--container-size);
   margin-inline: auto;
   padding-inline: 4rem;
-  height: 1400px; /*This is for testing purposes, and should be removed later*/
+  /*height: 1400px; This is for testing purposes, and should be removed later*/
   padding-top: 8rem;
 }
 #contentWrapper:has(.bmiColumn){
@@ -24,6 +24,7 @@ body{
   flex-direction: column;
   max-width: 35rem;
   gap:20px;
+  padding-inline: 10px;
   p{
     margin-bottom: 20px;
   }
@@ -34,8 +35,6 @@ body{
   }
 }
 .bmiColumn:last-of-type{
-  align-self: flex-end;
-  /* outline: 4px solid red; */
   min-height: 100%;
   overflow-x: clip;
 }
@@ -132,12 +131,10 @@ input[type="number"]::-webkit-inner-button{
   from{
     translate: -100% 0;
   }
-  to{
-    transalte: 100% 0;
-  }
+  to{translate:0 0}
 }
-/* BMI CALCULATOR START*/
-#bmiCalculator {
+/*BMI CALCULATOR START*/
+#bmiCalculator{
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -146,9 +143,10 @@ input[type="number"]::-webkit-inner-button{
   justify-items: center;
   animation-name: slideInFromLeft;
   animation-duration: 0.4s;
-  h1{ color: var(--main-purple-color);}
+
+  h1{ color: var(--main-purple-color); text-align: center; margin-bottom: 10px}
   /* outline: red solid 2px; */
-  max-width: fit-content;
+  /* max-width: fit-content; */
 }
   
 .inputComponent {
@@ -161,10 +159,11 @@ input[type="number"]::-webkit-inner-button{
     font-weight: 700;
   }
   & input {
-    color: black;
+    color: var(--main-purple-color);
     border-radius: 12px;
     padding-left: 15px;
     padding-block: 5px;
+    font-weight: 600;
     border: var(--main-purple-color) solid 2px;
   }
   
@@ -204,7 +203,7 @@ span{
 #submitButton {
   background-color: var(--main-purple-color);
   font-weight: 900;
-  padding: 20px 20px;
+  padding: 20px 40px;
   border-radius: 40px;
   color: white;
   transition: all 0.2s ease;
@@ -253,6 +252,9 @@ span{
 #yourBMIText{
   display: flex;
   margin-inline: auto;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: 800
   
 }
 .infoBlock{
@@ -316,4 +318,34 @@ span{
     font-weight: bolder;
   }
   margin-bottom: 10px;
+}
+
+#registerButton{
+  background-color: black;
+  border-radius: 8px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  max-width: max-content;
+  padding-inline: 10px;
+  padding-block: 5px;
+  transition: width 0.2s ease;
+  > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    div{
+      transition: color 0.1s ease;
+    }
+  }
+  &:hover{
+    > div > div{
+      color: var(--main-purple-color);
+    }
+  }
+  .svgArmContainer{
+    > svg{
+      width: 50px;
+    }
+  }
 }
