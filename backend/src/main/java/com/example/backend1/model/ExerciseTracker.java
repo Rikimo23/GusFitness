@@ -4,28 +4,22 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "exercise_tracker")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ExerciseTracker {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String exercisename;
-    private String date;
-    private String repetitions;
-    private String sets;
-    private String weight;
-    private String caloriesburned;
-
-
-
-
+    private String exerciseName;
+    private Integer sets;
+    private Integer reps;
+    private Integer weight; // in kg
 
     @ManyToOne
-    @JoinColumn(name = "userid", nullable = false)
-    private Users userid;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

@@ -10,12 +10,12 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "Nutrition")
+@Table(name = "nutrition")
 @Entity
 public class Nutrition {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String role;
     private Integer calories;
     private Integer protein;
     private Integer carbs;
@@ -27,6 +27,7 @@ public class Nutrition {
     private String snack3;
     private Integer fats;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Users> users;
+  @ManyToOne
+   @JoinColumn(name = "user_id")
+    private User user;
 }

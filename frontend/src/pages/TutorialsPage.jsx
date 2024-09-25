@@ -1,14 +1,17 @@
 import React from 'react'
 import WrapperComponent from '../component/WrapperComponent'
 import NavBar from '../Component/NavBar'
+import AnatomyMapComponent from '../component/AnatomyMapComponent'
 export default function TutorialsPage() {
   return (
     <>
       <NavBar />
       <WrapperComponent>
-        <div>TutorialsPage</div>
-        <h1>hello</h1>
+        <div className="pageMainTitle">Choose a 
+        Muscle Group</div>
+        <AnatomyMapComponent/>
       </WrapperComponent>
+
     </>
   )
 }

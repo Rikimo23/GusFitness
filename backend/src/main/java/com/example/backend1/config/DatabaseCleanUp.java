@@ -1,67 +1,59 @@
 package com.example.backend1.config;
 
 import jakarta.annotation.PreDestroy;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.beans.Statement;
 import java.sql.Connection;
-import java.util.logging.Logger;
+import java.sql.Statement;
+
 
 @Configuration
 public class DatabaseCleanUp {
 
     @Autowired
-    private DataSource dataSource ;
-
-    public DatabaseCleanUp(DataSource dataSource) {
-    }
-
+    private DataSource dataSource;
 
     @Bean
-    public DatabaseCleanUp databaseCleanup(){
-        return new DatabaseCleanUp(dataSource);
+    public DatabaseCleanup databaseCleanup() {
+        return new DatabaseCleanup(dataSource);
+    }
 
-
-
-        }
-
-      public static class DatabaseCleanup {
-
+    public static class DatabaseCleanup {
         private DataSource dataSource;
-        private final Logger logger = Logger.getLogger(DatabaseCleanup.class.getName());
-
+        private final Logger logger = org.slf4j.LoggerFactory.getLogger(DatabaseCleanup.class);
 
         public DatabaseCleanup(DataSource dataSource) {
             this.dataSource = dataSource;
         }
+
+
             @PreDestroy
-              public void dropDatabaseTable() {
-                try(Connection connection = dataSource.getConnection()){
+        public void dropDatabaseTable(){
+            try (Connection connection = dataSource.getConnection()) {
 
-                    Statement statement = (Statement) connection.createStatement();
-                    statement.execute("DROP TABLE IF EXIST workouts");
-                    statement.execute("DROP TABLE IF EXIST user_roles");
+                Statement statement = connection.createStatement();
 
+                statement.executeUpdate("DROP TABLE IF EXISTS exercise_tracker");
+                statement.executeUpdate("DROP TABLE IF EXISTS roles_users");
+                statement.executeUpdate("DROP TABLE IF EXISTS roles");
+                statement.executeUpdate("DROP TABLE IF EXISTS user");
+                statement.executeUpdate("DROP TABLE IF EXISTS nutrition");
+                statement.executeUpdate("DROP TABLE IF EXISTS user roles");
+                statement.executeUpdate("DROP TABLE IF EXISTS workouts");
 
-
-                    logger.info("Table dropped succesfully");
-
-
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-
-
-
+                logger.info("Table dropped successfully");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-
-
         }
-      }
-
+        }
     }
+
+
+
+
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import WrapperComponent from '../component/WrapperComponent'
 import NavBar from '../Component/NavBar'
+import { useState, useEffect } from 'react';
 export default function TrackerPage() {
   return (
     <>

@@ -1,0 +1,158 @@
+[
+  {
+    "calories": 2000,
+    "protein": 150,
+    "carbs": 250,
+    "snack1": "apple",
+    "snack2": "banana",
+    "breakfast": "oatmeal",
+    "lunch": "chicken salad",
+    "dinner": "steak",
+    "snack3": "yogurt",
+    "fats": 70
+
+  },
+  {
+    "calories": 2200,
+    "protein": 160,
+    "carbs": 260,
+    "snack1": "orange",
+    "snack2": "nuts",
+    "breakfast": "eggs",
+    "lunch": "turkey sandwich",
+    "dinner": "fish",
+    "snack3": "protein bar",
+    "fats": 80
+
+  },
+  {
+    "calories": 1800,
+    "protein": 140,
+    "carbs": 230,
+    "snack1": "berries",
+    "snack2": "cheese",
+    "breakfast": "smoothie",
+    "lunch": "pasta",
+    "dinner": "chicken",
+    "snack3": "granola",
+    "fats": 60
+
+  },
+  {
+    "calories": 2100,
+    "protein": 155,
+    "carbs": 240,
+    "snack1": "grapes",
+    "snack2": "crackers",
+    "breakfast": "toast",
+    "lunch": "salmon",
+    "dinner": "pork",
+    "snack3": "hummus",
+    "fats": 75
+
+  },
+  {
+    "calories": 2300,
+    "protein": 165,
+    "carbs": 270,
+    "snack1": "melon",
+    "snack2": "peanut butter",
+    "breakfast": "bagel",
+    "lunch": "beef",
+    "dinner": "shrimp",
+    "snack3": "cottage cheese",
+    "fats": 85
+
+  },
+  {
+    "calories": 1900,
+    "protein": 145,
+    "carbs": 220,
+    "snack1": "kiwi",
+    "snack2": "almonds",
+    "breakfast": "pancakes",
+    "lunch": "quinoa",
+    "dinner": "tofu",
+    "snack3": "dark chocolate",
+    "fats": 65
+
+  },
+  {
+    "calories": 2400,
+    "protein": 170,
+    "carbs": 280,
+    "snack1": "pear",
+    "snack2": "walnuts",
+    "breakfast": "muffin",
+    "lunch": "lentils",
+    "dinner": "duck",
+    "snack3": "popcorn",
+    "fats": 90
+
+  },
+  {
+    "calories": 2500,
+    "protein": 175,
+    "carbs": 290,
+    "snack1": "plum",
+    "snack2": "cashews",
+    "breakfast": "waffles",
+    "lunch": "beans",
+    "dinner": "lamb",
+    "snack3": "trail mix",
+    "fats": 95
+
+  },
+  {
+    "calories": 2600,
+    "protein": 180,
+    "carbs": 300,
+    "snack1": "peach",
+    "snack2": "pistachios",
+    "breakfast": "croissant",
+    "lunch": "chickpeas",
+    "dinner": "veal",
+    "snack3": "fruit salad",
+    "fats": 100
+
+  },
+  {
+    "calories": 2700,
+    "protein": 185,
+    "carbs": 310,
+    "snack1": "nectarine",
+    "snack2": "sunflower seeds",
+    "breakfast": "french toast",
+    "lunch": "barley",
+    "dinner": "goat",
+    "snack3": "rice cakes",
+    "fats": 105
+
+  },
+  {
+    "calories": 2800,
+    "protein": 190,
+    "carbs": 320,
+    "snack1": "apricot",
+    "snack2": "pumpkin seeds",
+    "breakfast": "scone",
+    "lunch": "bulgur",
+    "dinner": "rabbit",
+    "snack3": "pretzels",
+    "fats": 110
+
+  },
+  {
+    "calories": 2900,
+    "protein": 195,
+    "carbs": 330,
+    "snack1": "fig",
+    "snack2": "chia seeds",
+    "breakfast": "biscuit",
+    "lunch": "couscous",
+    "dinner": "quail",
+    "snack3": "crackers",
+    "fats": 115
+
+  }
+]
