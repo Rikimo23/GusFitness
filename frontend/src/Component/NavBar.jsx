@@ -1,9 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 import HealthOptionsContainer from "../component/HealthOptionsContainer"
 export default function NavBar({ navigationLinks }) {
   const [subOptionsEnabled, setSubOptionsEnabled] = useState(false)
+  const restoreScrolling =()=>{
+       document.body.style.overflowY = 'auto';
+       document.body.style.height= 'unset';
+  }
+  useEffect(()=>{
+    restoreScrolling()
+  },[])
   return (
     <div id="navbarContainer">
       <div id="logoName"><a href="/">Gus Gym & Fitness</a></div>

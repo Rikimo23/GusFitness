@@ -7,7 +7,6 @@ export default function SignUpPage() {
     <>
       <NavBar />
       <WrapperComponent>
-        <div>SignUpPage</div>
         <SignUpForm />
       </WrapperComponent>
     </>

@@ -5,12 +5,12 @@ import NavBar from '../Component/NavBar'
 export default function SignInPage() {
   return (
     <>
-      <NavBar/>
-      <WrapperComponent>        
-          <div>SignInPage</div>
-          <SignInForm />
+      <NavBar />
+      <WrapperComponent>
+      <div className="pageMainTitle">Welcome Back!</div>
+        <SignInForm />
       </WrapperComponent>
     </>
-    
+
   )
 }
