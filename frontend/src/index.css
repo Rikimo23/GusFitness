@@ -21,7 +21,7 @@ body{
   gap: 50px;
 }
 #contentWrapper:has(.tableContainer){  
-  gap: 20px;
+  gap: 50px;
 }
 #contentWrapper:has(form){
     align-items: center;
@@ -86,7 +86,7 @@ input[type="number"]::-webkit-inner-button{
   color: white;
   translate: 10px 0;
 }
-#healthOptionsContainer{
+.healthOptionsContainer{
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -435,6 +435,7 @@ span{
   font-weight: 800;
   color: var(--main-purple-color);
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .visible{
@@ -462,11 +463,11 @@ section{
   }
   &:not(:first-of-type){
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
     p{
       max-width: 30rem;
     }
-    gap: 20px;
+    /* gap: 20px; */
     margin-bottom: 200px;
   }
   
@@ -504,23 +505,52 @@ section{
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100%;
-  *{
-    border-bottom: 1px solid black;
-   
+  > div:first-of-type, > div:nth-of-type(2n){
+    font-weight: 800;
+  }
+  input{    
+    text-align: center;
+    outline: 1px solid;
+  }
+
+  /* min-width: 100%; */
+}
+
+.doubleTitleCell{
+  display: flex;
+  gap: 5px;
+  /* justify-content: flex-start; */
+  outline: 1px solid;
+  > div{
+    display: flex;
+    margin-inline: auto;    
   }
 }
 
-.editableCellContainer, .doubleTitleCell{
+.editableCellContainer{
   display: flex;
-  gap: 5px;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  justify-content: center;
+  width: 100%;
+   > div{
+    display: flex;
+    margin-inline: auto;    
+  }
+  .editableCells{
+    /* box-sizing: border-box; */
+    padding-inline: 10px;
+    width: 100%;
+    outline: black 1px solid;    
+    /* text-align: center; */
+  }
 }
+
+
+/* .editableCells{
+  flex-grow: 1;
+} */
 .setTitle{
   display: flex;
-  border-right: 1px solid black;
+  justify-content: center;
+  font-weight: 700;
 }
 
 #registrationFormSetupContainer{
@@ -529,7 +559,6 @@ section{
   align-items: center;
   justify-content: center;
   inset: 0;
-  /* z-index: 1000; */
   background: white;
   button{
     position: absolute;
@@ -544,5 +573,22 @@ section{
     &:hover{
       background: #350ace;
     }
+
   }
+}
+
+#textAreaContactUs{
+  border-radius: 10px;
+  outline: var(--main-purple-color) solid 2px;
+  padding: 15px;
+  max-width: 100%;
+  min-height: 150px;
+  margin-top: 20px;
+}
+
+li svg{
+  fill: var(--main-purple-color);
+}
+.setContainer{
+ max-width: 200px;
 }

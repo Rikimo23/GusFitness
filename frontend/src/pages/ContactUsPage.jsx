@@ -8,10 +8,9 @@ export default function ContactUsPage() {
     <>
       <NavBar/>
       <WrapperComponent>      
-        <div>This is the contact page</div>
+        <div className="pageMainTitle">Get in Contact!</div>
         <ContactUsForm />
       </WrapperComponent>
-    </>
-    
+    </>    
   )
 }

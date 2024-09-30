@@ -1,0 +1,353 @@
+
+    [
+      {
+        "name": "Rope Rear Delt Pull",
+        "description": "A great exercise for targeting the rear deltoids.",
+        "steps": [
+          "Attach a rope to a high pulley.",
+          "Stand facing the machine and grasp the rope with both hands.",
+          "Pull the rope towards your face while keeping your elbows high.",
+          "Squeeze the shoulder blades together at the end of the movement."
+        ]
+      },
+      {
+        "name": "Reversed Barbell Shrug",
+        "description": "Targets the traps with a unique twist.",
+        "steps": [
+          "Stand with a barbell in front of you, palms facing you.",
+          "Lift your shoulders towards your ears.",
+          "Hold for a moment, then lower back down."
+        ]
+      },
+      {
+        "name": "Dumbbell Lateral Raise",
+        "description": "Focuses on the lateral deltoids for broader shoulders.",
+        "steps": [
+          "Stand with a dumbbell in each hand at your sides.",
+          "Raise the dumbbells out to the sides until they are parallel to the ground.",
+          "Lower back down slowly."
+        ]
+      },
+      {
+        "name": "Dumbbell Shrugs",
+        "description": "Strengthens the upper traps.",
+        "steps": [
+          "Stand holding a dumbbell in each hand.",
+          "Lift your shoulders towards your ears.",
+          "Hold briefly before lowering."
+        ]
+      },
+      {
+        "name": "Dumbbell Shoulder Press",
+        "description": "A compound movement for shoulder strength.",
+        "steps": [
+          "Sit or stand with a dumbbell in each hand at shoulder height.",
+          "Press the weights overhead until your arms are straight.",
+          "Lower back down to the starting position."
+        ]
+      },
+      {
+
+        "name": "Bent Over Dumbbell Flyes",
+        "description": "Targets the rear deltoids and upper back.",
+        "steps": [
+          "Bend at the hips with a dumbbell in each hand.",
+          "Raise the dumbbells out to the side.",
+          "Squeeze your shoulder blades together before lowering."
+        ]
+      },
+      {
+
+        "name": "Smith Machine Shoulder Press",
+        "description": "A controlled way to work on shoulder strength.",
+        "steps": [
+          "Set the bar at shoulder height on the Smith machine.",
+          "Grip the bar with hands slightly wider than shoulder-width.",
+          "Press the bar overhead until your arms are fully extended.",
+          "Lower back down to shoulder height."
+        ]
+      },
+      {
+        "name": "Leverage Leg Curl",
+        "description": "Isolates the hamstrings effectively.",
+        "steps": [
+          "Adjust the machine to fit your leg length.",
+          "Sit down and place your legs under the padded lever.",
+          "Curl your legs towards your glutes, then lower back."
+        ]
+      },
+      {
+        "name": "Leg Press",
+        "description": "A compound exercise targeting the quads, hamstrings, and glutes.",
+        "steps": [
+          "Sit on the leg press machine with your feet on the platform.",
+          "Push the platform away while keeping your back against the seat.",
+          "Lower the platform back towards you."
+        ]
+      },
+      {
+        "name": "Squat",
+        "description": "A fundamental exercise for lower body strength.",
+        "steps": [
+          "Stand with feet shoulder-width apart.",
+          "Lower your body as if sitting back into a chair.",
+          "Keep your chest up and knees aligned with your toes.",
+          "Return to standing position."
+        ]
+      },
+      {
+        "name": "Seated Leg Curl",
+        "description": "Focuses on the hamstrings in a seated position.",
+        "steps": [
+          "Adjust the machine to fit your leg length.",
+          "Sit down and place your legs under the padded lever.",
+          "Curl your legs down towards the ground, then return."
+        ]
+      },
+      {
+        "name": "Hip Thrust Machine",
+        "description": "Targets the glutes effectively.",
+        "steps": [
+          "Sit on the machine with your back against the pad.",
+          "Place your feet on the platform.",
+          "Thrust your hips upward, squeezing your glutes, then lower back."
+        ]
+      },
+      {
+        "name": "Deadlift",
+        "description": "A full-body compound exercise focusing on the posterior chain.",
+        "steps": [
+          "Stand with feet hip-width apart, barbell on the floor.",
+          "Bend at the hips and knees to grip the bar.",
+          "Lift the bar by extending your hips and knees.",
+          "Keep your back straight throughout the lift."
+        ]
+      },
+      {
+        "name": "Smith Machine Calf Raises",
+        "description": "Isolates the calves using a Smith machine.",
+        "steps": [
+          "Set the bar at hip height on the Smith machine.",
+          "Stand with your toes on a raised surface.",
+          "Raise your heels as high as possible, then lower back."
+        ]
+      },
+      {
+        "name": "Machine Calf Raises",
+        "description": "Targets the calf muscles effectively.",
+        "steps": [
+          "Adjust the machine to fit your height.",
+          "Place your toes on the footplate and rest your heels off.",
+          "Push through the balls of your feet to lift your heels."
+        ]
+      },
+      {
+        "name": "Calf Raises",
+        "description": "A basic exercise for calf development.",
+        "steps": [
+          "Stand on a raised surface with your heels hanging off.",
+          "Raise your heels as high as possible, then lower back."
+        ]
+      },
+      {
+        "name": "Push Ups",
+        "description": "A classic bodyweight exercise for upper body strength.",
+        "steps": [
+          "Start in a plank position with hands shoulder-width apart.",
+          "Lower your body until your chest nearly touches the ground.",
+          "Push back up to the starting position."
+        ]
+      },
+      {
+        "name": "Incline Smith Machine Bench Press",
+        "description": "Targets the upper chest with a controlled movement.",
+        "steps": [
+          "Set the Smith machine to an incline.",
+          "Grip the bar at shoulder width.",
+          "Lower the bar to your chest and press back up."
+        ]
+      },
+      {
+        "name": "Chest Dumbbell Fly",
+        "description": "Stretches and strengthens the chest muscles.",
+        "steps": [
+          "Lie on a bench with a dumbbell in each hand.",
+          "Open your arms wide, keeping a slight bend in your elbows.",
+          "Bring the dumbbells back together above your chest."
+        ]
+      },
+      {
+        "name": "Lat Pulldown",
+        "description": "Targets the latissimus dorsi muscles in the back.",
+        "steps": [
+          "Sit at the lat pulldown machine and grasp the bar.",
+          "Pull the bar down towards your chest while leaning back slightly.",
+          "Slowly return to the starting position."
+        ]
+      },
+      {
+        "name": "Lat Pulldown on Floor Seated",
+        "description": "A variation of the lat pulldown for added stability.",
+        "steps": [
+          "Sit on the floor and grasp the lat pulldown bar.",
+          "Pull the bar towards your chest, keeping your back straight.",
+          "Return to the starting position."
+        ]
+      },
+      {
+        "name": "Reversed Pull Row",
+        "description": "Focuses on the back and biceps.",
+        "steps": [
+          "Set up a cable machine with a low pulley.",
+          "Grip the handle with both hands, palms facing up.",
+          "Pull the handle towards your abdomen, squeezing the shoulder blades."
+        ]
+      },
+      {
+        "name": "Smith Machine Bent Row",
+        "description": "A bent-over row variation using a Smith machine.",
+        "steps": [
+          "Set the bar on the Smith machine at knee height.",
+          "Grip the bar and bend at the hips.",
+          "Pull the bar towards your abdomen, then lower."
+        ]
+      },
+      {
+        "name": "Pull Ups",
+        "description": "An excellent exercise for upper body strength.",
+        "steps": [
+          "Grip the pull-up bar with palms facing away.",
+          "Pull your body upwards until your chin is above the bar.",
+          "Lower back down with control."
+        ]
+      },
+      {
+        "name": "Landmine Row",
+        "description": "Targets the upper back and rear delts.",
+        "steps": [
+          "Place one end of a barbell in a landmine attachment.",
+          "Grip the other end with one hand.",
+          "Pull the bar towards your body while maintaining a stable stance."
+        ]
+      },
+      {
+        "name": "Dumbbell Row",
+        "description": "Targets the back and biceps.",
+        "steps": [
+          "Place one knee and hand on a bench for support.",
+          "Hold a dumbbell in the other hand, arm extended.",
+          "Pull the dumbbell towards your hip, then lower."
+        ]
+      },
+      {
+
+        "name": "Floor Rope Pull",
+        "description": "Works the back and core muscles.",
+        "steps": [
+          "Sit on the floor with your legs extended.",
+          "Grip the rope attached to a cable machine.",
+          "Pull the rope towards you while leaning back slightly."
+        ]
+      },
+      {
+        "name": "Triceps Pulldown",
+        "description": "Isolates the triceps for muscle development.",
+        "steps": [
+          "Stand at a cable machine with a rope attachment.",
+          "Grip the rope with both hands, elbows tucked in.",
+          "Push the rope down until your arms are fully extended."
+        ]
+      },
+      {
+        "name": "Seated Barbell Wrist Curl",
+        "description": "Strengthens the forearms and wrist flexors.",
+        "steps": [
+          "Sit on a bench with a barbell in your hands.",
+          "Rest your forearms on your thighs, letting the bar roll to your fingertips.",
+          "Curl the barbell up using your wrists."
+        ]
+      },
+      {
+
+        "name": "Rope Pull Down",
+        "description": "Works the back and shoulders.",
+        "steps": [
+          "Attach a rope to a high pulley.",
+          "Stand facing the machine, grip the rope with both hands.",
+          "Pull down and outwards, squeezing your back muscles."
+        ]
+      },
+      {
+        "name": "Reversed Grip Barbell Curl",
+        "description": "Targets the biceps with a different grip.",
+        "steps": [
+          "Stand with a barbell, palms facing down.",
+          "Curl the barbell towards your shoulders.",
+          "Lower back down slowly."
+        ]
+      },
+      {
+        "name": "Standing Barbell Curl",
+        "description": "A classic exercise for bicep strength.",
+        "steps": [
+          "Stand holding a barbell with palms facing up.",
+          "Curl the barbell towards your shoulders.",
+          "Lower back down with control."
+        ]
+      },
+      {
+        "name": "Seated Dumbbell Curl",
+        "description": "Isolates the biceps for focused training.",
+        "steps": [
+          "Sit on a bench with a dumbbell in each hand.",
+          "Curl the dumbbells towards your shoulders.",
+          "Lower back down slowly."
+        ]
+      },
+      {
+
+        "name": "Regular Crunches",
+        "description": "Targets the abdominal muscles.",
+        "steps": [
+          "Lie on your back with knees bent.",
+          "Curl your torso towards your knees.",
+          "Lower back down slowly."
+        ]
+      },
+      {
+        "name": "Hanging Leg Raises",
+        "description": "Strengthens the core and hip flexors.",
+        "steps": [
+          "Hang from a pull-up bar with arms extended.",
+          "Raise your legs towards your chest.",
+          "Lower back down with control."
+        ]
+      },
+      {
+        "name": "Hanging Knee Raises",
+        "description": "Targets the lower abs effectively.",
+        "steps": [
+          "Hang from a pull-up bar.",
+          "Pull your knees towards your chest.",
+          "Lower back down slowly."
+        ]
+      },
+      {
+        "name": "Side Plate Bend",
+        "description": "Works the obliques for core strength.",
+        "steps": [
+          "Stand holding a weight plate with both hands.",
+          "Lean to one side, then return to the center.",
+          "Alternate sides."
+        ]
+      },
+      {
+        "name": "Rotary Torso Obliques",
+        "description": "Targets the obliques with a twisting motion.",
+        "steps": [
+          "Sit on the rotary torso machine.",
+          "Grip the handles and rotate your torso to one side.",
+          "Return to the center and alternate sides."
+        ]
+      }
+      ]

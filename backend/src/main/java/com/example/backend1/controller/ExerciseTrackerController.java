@@ -27,7 +27,7 @@ public class ExerciseTrackerController {
         return exerciseTracker.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ExerciseTracker createExerciseTracker(@RequestBody ExerciseTracker exerciseTracker) {
         return exerciseTrackerRepository.save(exerciseTracker);
     }

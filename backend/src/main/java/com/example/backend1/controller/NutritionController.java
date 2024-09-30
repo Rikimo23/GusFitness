@@ -27,7 +27,7 @@ public class NutritionController {
         return nutrition.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Nutrition createNutrition(@RequestBody Nutrition nutrition) {
         return nutritionRepository.save(nutrition);
     }

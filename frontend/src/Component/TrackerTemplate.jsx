@@ -7,10 +7,11 @@ export default function TrackerTemplate() {
     <FirstColumn>
       {generator(6).map((comp)=>{
         return (
-          <div
+          <input type="text"
+          placeholder='exercise name'
          key={`editcell-${comp}`}
          className="editableCells"
-         >{comp}</div>
+         ></input>
         )
       })}
     </FirstColumn>
@@ -19,13 +20,9 @@ export default function TrackerTemplate() {
         <Set key={`setProp${entry}`}
           number={entry+1}
         >{
-          generator(6).map((cell)=>{
-            return(
-              <div 
-              key={`edit-cells-${cell}`}
-              className="editableCells">{
-                <PairsOfTwoCells />
-              }</div>
+          generator(6).map((cell, index)=>{
+            return(              
+                <PairsOfTwoCells key={`pair-of-two-cells-index${index}`} />             
             )
           })
         }</Set>
@@ -45,8 +42,8 @@ const TableContainer=({children})=>{
     return(
       <div className="firstColumnTable">
         <div>Resistance Training</div>
-        <div>EXERCISE</div>
-        <div>{children}</div>
+        <div>Exercise</div>
+        {children}        
       </div>
     )
   }
@@ -58,7 +55,7 @@ const TableContainer=({children})=>{
           <div>Weight</div>
           <div>Reps</div>
         </div>
-        <div>{children}</div>
+        {children}
       </div>
     )
   }
@@ -66,8 +63,8 @@ const TableContainer=({children})=>{
   const PairsOfTwoCells=()=>{  
     return(
       <div className="editableCellContainer">
-        <div className="editableCells">0</div>
-        <div className="editableCells">1</div>
+        <input type="text" className="editableCells" placeholder="0"></input>
+        <input type="text" className="editableCells" placeholder="0"></input>
       </div>
     )
   }

@@ -1,15 +1,17 @@
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import InputComponent from './InputComponent'
 export default function SignUpForm({action=undefined}) {
-    const [newUserData, setNewUserData] = useState({userName: "", password:"", email:""})
+    const [newUserData, setNewUserData] = useState({username: "", password:"", email:""})
+
+
     const setUserData=(e)=>{
         if(action !== undefined){
             action(newUserData)
         }
-        e.preventDefault()
+        e.preventDefault();
     }
     const getUserName=(userName)=>{
-        setNewUserData((currentData)=>({...currentData, ...{userName: userName}}))
+        setNewUserData((currentData)=>({...currentData, ...{username: userName}}))
     }
     const getPassword=(password)=>{
         setNewUserData((currentData)=>({...currentData, ...{password: password}}))

@@ -13,6 +13,18 @@ function Home() {
        document.body.style.overflowY = 'auto';
        document.body.style.height= 'unset';
    }
+
+   useEffect(() => {
+
+      async function fetchData() {
+         const response = await fetch('http://localhost:8081/api/users/1')
+         const data = await response.json()
+         console.log(data)
+      }
+
+      fetchData()
+   }, [])
+
    return (
       <>
          <NavBar />

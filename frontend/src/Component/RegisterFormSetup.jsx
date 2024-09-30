@@ -11,15 +11,23 @@ export default function RegisterFormSetup({exitButtonClicked}) {
         setEnabledForms((oldData)=>({...oldData, ...{signUp: false, bmiCalculator: true}}))
     }
     const getBmiInfo =(bmiData)=>{
-        setNewUserInfo((currentData)=>({...currentData, ...{
-       bmiInfo:{age: bmiData.age, height: bmiData.height, weight: bmiData.weight, bmiRange: bmiData.bmiRange}   
-    //    try{
-    //     //endpoint post logic 
-    //    }    
-    //    catch(e){
-    //     // handle errors
-    //    }
-    }}))
+        setNewUserInfo((currentData)=>({...currentData, bmi: bmiData.bmiRange}
+        ))
+
+        const signUp = async()=>{
+        try {
+            await fetch("http://localhost:8081/api/users/register", { 
+                method: "POST",
+                body: JSON.stringify(newUserInfo),
+                headers: {
+                    "Content-Type": "application/json"
+                }})
+        } catch (error) {
+            console.error(error);
+        }   
+    }
+
+    signUp();
     }
     const container = useRef(null)
     useEffect(()=>{

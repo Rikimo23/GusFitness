@@ -4,83 +4,95 @@
     "password": "password1",
     "email": "user1@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 22.5
   },
   {
     "username": "user2",
     "password": "password2",
     "email": "user2@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 24.0
   },
   {
     "username": "user3",
     "password": "password3",
     "email": "user3@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 23.0
   },
   {
     "username": "user4",
     "password": "password4",
     "email": "user4@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 21.0
   },
   {
     "username": "user5",
     "password": "password5",
     "email": "user5@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 25.0
   },
   {
     "username": "user6",
     "password": "password6",
     "email": "user6@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 26.0
   },
   {
     "username": "user7",
     "password": "password7",
     "email": "user7@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 22.0
   },
   {
     "username": "user8",
     "password": "password8",
     "email": "user8@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 23.5
   },
   {
     "username": "user9",
     "password": "password9",
     "email": "user9@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 24.5
   },
   {
     "username": "user10",
     "password": "password10",
     "email": "user10@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 22.8
   },
   {
     "username": "user11",
     "password": "password11",
     "email": "user11@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 23.2
   },
   {
     "username": "user12",
     "password": "password12",
     "email": "user12@example.com",
     "exerciseTrackers": [],
-    "nutritions": []
+    "nutritions": [],
+    "bmi": 24.1
   }
 ]
