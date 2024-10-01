@@ -1,29 +1,32 @@
 import { React, useEffect, useState, useRef } from 'react'
+import {useNavigate} from 'react-router-dom';
 import NavBar from './NavBar'
 import WrapperComponent from './WrapperComponent'
 import ArmFlexComponent from './ArmFlexComponent'
 import RegisterFormSetup from './RegisterFormSetup'
 function Home() {
-   const [registerOpen, setRegisterOpen] = useState(false)
+   const navigate = useNavigate()
+   // const [registerOpen, setRegisterOpen] = useState(false)
    const buttonClicked=()=>{
-      setRegisterOpen(true)
+      navigate('/signup')
+      // setRegisterOpen(true)
    }
-   const exitButtonClicked=()=>{
-       setRegisterOpen(false)
-       document.body.style.overflowY = 'auto';
-       document.body.style.height= 'unset';
-   }
+   // const exitButtonClicked=()=>{
+   //     setRegisterOpen(false)
+   //     document.body.style.overflowY = 'auto';
+   //     document.body.style.height= 'unset';
+   // }
 
-   useEffect(() => {
+   // useEffect(() => {
 
-      async function fetchData() {
-         const response = await fetch('http://localhost:8081/api/users/1')
-         const data = await response.json()
-         console.log(data)
-      }
+   //    async function fetchData() {
+   //       const response = await fetch('http://localhost:8081/api/users/1')
+   //       const data = await response.json()
+   //       console.log(data)
+   //    }
 
-      fetchData()
-   }, [])
+   //    fetchData()
+   // },[])
 
    return (
       <>
@@ -48,7 +51,7 @@ function Home() {
                   <p>There is an option to make a account so you can be able to track you're progress.</p>
                </div>
             </SectionComp>
-            {registerOpen && <RegisterFormSetup exitButtonClicked = {exitButtonClicked}/>}
+            {/* {registerOpen && <RegisterFormSetup exitButtonClicked = {exitButtonClicked}/>} */}
          </WrapperComponent>
       </>
 

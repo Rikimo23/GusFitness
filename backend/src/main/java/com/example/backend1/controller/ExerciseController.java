@@ -16,10 +16,11 @@ public class ExerciseController {
     @Autowired
     private ExerciseRepository exerciseRepository;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Exercise> getAllExercises() {
         return exerciseRepository.findAll();
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Exercise> getExerciseById(@PathVariable Long id) {

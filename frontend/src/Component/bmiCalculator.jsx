@@ -1,9 +1,11 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import InputComponent from './InputComponent';
-export default function BMIComponent({action=undefined}) {
+export default function BMIComponent({action}) {
   const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
 
 
+  console.log(action)
+  console.log(bmiInfo)
   const getAge =(age)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{age: age}})
@@ -41,13 +43,21 @@ export default function BMIComponent({action=undefined}) {
   }
   const getBMI=(e)=>{
     const convertedMeters = feetToMeters(bmiInfo.feet)+inchesToMeters(bmiInfo.inches)
-    const finalBmi = lbsToKilograms(bmiInfo.lbs) / (Math.pow(convertedMeters, 2))
-    setBmiInfo((currentInfo)=>({...currentInfo, ...{bmi: finalBmi.toFixed(1)}}))
+    const finalBmi = (lbsToKilograms(bmiInfo.lbs) / (Math.pow(convertedMeters, 2))).toFixed(1)
+    setBmiInfo((currentInfo)=>({...currentInfo, ...{bmi: finalBmi}}))   
+    // if(action !== undefined){
+    //   action({age: bmiInfo.age, height: `${bmiInfo.feet}.${bmiInfo.inches}`, weight: bmiInfo.lbs, bmi: finalBmi.toFixed(1)})
+    // } 
     if(action !== undefined){
-      action({age: bmiInfo.age, height: `${bmiInfo.feet}.${bmiInfo.inches}`, weight: bmiInfo.lbs, bmiRange: finalBmi.toFixed(1)})
+      const newBmi = bmiInfo.bmi
+      action({age: bmiInfo.age, height: `${bmiInfo.feet}.${bmiInfo.inches}`, weight: bmiInfo.lbs, bmi: newBmi})
     }
     e.preventDefault()
+    
   }
+  // useEffect(()=>{
+    
+  // }, [bmiInfo.bmi])
   return (
     <div id="bmiCalculator">
       <h1>BMI Calculator</h1>

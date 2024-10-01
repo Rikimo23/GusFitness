@@ -71,7 +71,7 @@ public class UserController {
             return ResponseEntity.badRequest().body("Username is already in use");
         }
         User registeredUser = userRepository.save(newUser);
-        return ResponseEntity.ok().body(registeredUser);
+        return ResponseEntity.ok().body(newUser);
     }
 
     @PostMapping("/login")

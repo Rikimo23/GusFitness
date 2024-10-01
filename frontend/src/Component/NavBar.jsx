@@ -5,7 +5,7 @@ import HealthOptionsContainer from "../component/HealthOptionsContainer"
 import DropDownMenu from "../Component/DropDownMenu"
 export default function NavBar({ navigationLinks }) {
   const [pageLoaded, setPageLoaded] = useState(false)
-  const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: true, profileSubMenuEnabled: false })
+  const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: false, profileSubMenuEnabled: false })
   
   const setSubOptionsEnabled = (isEnabled) => {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: isEnabled, profileSubMenuEnabled: false } }))
@@ -27,11 +27,11 @@ export default function NavBar({ navigationLinks }) {
   }
   useEffect(() => {
     restoreScrolling()
-    if(localStorage.getItem('loggedIn')===null){
-      localStorage.setItem('loggedIn', false)
-    }else{
-      setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: localStorage.getItem('loggedIn')}}))
-    }
+    // if(localStorage.getItem('loggedIn')===null){
+    //   localStorage.setItem('loggedIn', false)
+    // }else{
+    //   setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: localStorage.getItem('loggedIn')}}))
+    // }
 
   }, [])
   return (

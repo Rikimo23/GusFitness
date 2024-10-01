@@ -1,65 +1,72 @@
-import {React, useState, useEffect, useRef} from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import SignUpForm from "../Component/SignUpForm"
 import BmiCalculator from "../Component/bmiCalculator"
 
-export default function RegisterFormSetup({exitButtonClicked}) {
-    const [enabledForms, setEnabledForms] = useState({signUp: true, bmiCalculator: false})
-    const [newUserInfo, setNewUserInfo] = useState({userName:"", password:"", email: "", bmiInfo:{age: 0, height: 0, weight: 0, bmiRange: 0}})
+export default function RegisterFormSetup({ exitButtonClicked=undefined }) {
+    const [enabledForms, setEnabledForms] = useState({ signUp: false, bmiCalculator: true })
+    const [newUserInfo, setNewUserInfo] = useState({ userName: "", password: "", email: "", bmiInfo: { age: 0, height: 0, weight: 0, bmi: 0 } })
+    const [bmiValue, setBmiValue] = useState(0)
     const buttonRef = useRef(null)
-    const getUserInfo =(userInfo)=>{
-        setNewUserInfo(userInfo)
-        setEnabledForms((oldData)=>({...oldData, ...{signUp: false, bmiCalculator: true}}))
+    const getUserInfo = (userInfo) => {
+        setNewUserInfo(userInfo)        
     }
-    const getBmiInfo =(bmiData)=>{
-        setNewUserInfo((currentData)=>({...currentData, bmi: bmiData.bmiRange}
-        ))
+    const getBmiInfo = (bmiData) => {
+        const passedBmi = bmiData.bmi
 
-        const signUp = async()=>{
+        setNewUserInfo((currentData) => {
+            const updatedData = { ...currentData, bmi: passedBmi }            
+            // Call signUp after updating the state
+            // signUp(updatedData) //original commented out            
+            return updatedData
+        })
+        setBmiValue(passedBmi)
+        setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false} }))
+
+    }
+    const signUp = async () => {
+        console.log("sign up called")
         try {
-            await fetch("http://localhost:8081/api/users/register", { 
+         const response = await fetch("http://localhost:8081/api/users/register", {
                 method: "POST",
                 body: JSON.stringify(newUserInfo),
                 headers: {
                     "Content-Type": "application/json"
-                }})
+                }
+            })
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder("utf-8");
+            let result = '';
+            let done = false;
+    
+            while (!done) {
+                const { value, done: doneReading } = await reader.read();
+                done = doneReading;
+                result += decoder.decode(value, { stream: !done });
+            }
+            
+            console.log(JSON.parse(result));
+           
         } catch (error) {
             console.error(error);
-        }   
-    }
-
-    signUp();
+        }
     }
     const container = useRef(null)
-    useEffect(()=>{
-        if(container.current) container.current.focus()
-    },[])
-    useEffect(()=>{
-        // alert(`user info: ${newUserInfo}`)
-        console.table(newUserInfo)
-    },[newUserInfo])
-  return (
-    <div id="registrationFormSetupContainer"
-        ref={container}
-        onFocus={()=>{
-            document.body.style.overflowY = 'hidden';
-            document.body.style.height = "100%"
-        }}
-        onKeyDown={(e)=>{
-            if(e.key === "Escape") 
-            {
-                if(buttonRef.current) buttonRef.current.click()
-            }
-        }}
-        tabIndex={0}
-    >
-        <div>
-            {enabledForms.signUp && <SignUpForm action={getUserInfo}/>}
-            {enabledForms.bmiCalculator && <BmiCalculator action={getBmiInfo}/>}
+    useEffect(() => {
+        if (container.current) container.current.focus()
+    }, [])
+    return (
+        <div id="registrationFormSetupContainer"
+            ref={container}
+            tabIndex={0}
+        >
+            <div>
+                {enabledForms.signUp && <SignUpForm action={getUserInfo} />}
+                {enabledForms.bmiCalculator && <BmiCalculator action={getBmiInfo}/>}
+            </div>
         </div>
-        <button 
-        onClick={exitButtonClicked}
-        ref = {buttonRef}
-        >X</button>
-    </div>
-  )
+    )
 }

@@ -41,7 +41,6 @@ public class RunJsonDataLoader implements CommandLineRunner {
         loadNutrition();
     }
 
-
     private void loadExercises() {
         if (exerciseRepository.count() == 0) {
             try (InputStream inputStream = getClass().getResourceAsStream("/data/exercise.json")) {
