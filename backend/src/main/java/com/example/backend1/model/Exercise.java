@@ -20,7 +20,9 @@ public class Exercise {
     @ElementCollection
     private List<String> steps;
 
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    private String difficulty;
 }

@@ -2,7 +2,7 @@ import {React, useState, useEffect} from 'react'
 import InputComponent from './InputComponent';
 export default function BMIComponent({action}) {
   const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
-
+  const [bmiUpdated, setBmiUpdated] = useState(false)
 
   console.log(action)
   console.log(bmiInfo)
@@ -45,19 +45,18 @@ export default function BMIComponent({action}) {
     const convertedMeters = feetToMeters(bmiInfo.feet)+inchesToMeters(bmiInfo.inches)
     const finalBmi = (lbsToKilograms(bmiInfo.lbs) / (Math.pow(convertedMeters, 2))).toFixed(1)
     setBmiInfo((currentInfo)=>({...currentInfo, ...{bmi: finalBmi}}))   
-    // if(action !== undefined){
-    //   action({age: bmiInfo.age, height: `${bmiInfo.feet}.${bmiInfo.inches}`, weight: bmiInfo.lbs, bmi: finalBmi.toFixed(1)})
-    // } 
-    if(action !== undefined){
-      const newBmi = bmiInfo.bmi
-      action({age: bmiInfo.age, height: `${bmiInfo.feet}.${bmiInfo.inches}`, weight: bmiInfo.lbs, bmi: newBmi})
-    }
-    e.preventDefault()
-    
+    setBmiUpdated(true)
+    e.preventDefault()    
   }
-  // useEffect(()=>{
-    
-  // }, [bmiInfo.bmi])
+  useEffect(()=>{
+    if(bmiUpdated){
+      if(action !== undefined){
+        action({bmi: bmiInfo.bmi})
+        console.log(`bmi has updated from the bmi calculator ${bmiInfo.bmi}`)
+      }
+    }
+  },[bmiUpdated])
+
   return (
     <div id="bmiCalculator">
       <h1>BMI Calculator</h1>
