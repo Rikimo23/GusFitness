@@ -14,24 +14,30 @@ export default function NavBar({ navigationLinks }) {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: false, profileSubMenuEnabled: isEnabled } }))
   }
   const funs = [
-    () => console.log("Profile Deleted"),
+    () => console.log("Go to Profile"),
     () => {
       setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
       localStorage.setItem('loggedIn', false)
     },
-    () => console.log("Go to Profile")]
+    () => {
+      console.log("Profile Deleted")  
+      setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
+      localStorage.setItem('loggedIn', false)
+    } 
+  ]
+
   const menuOptions = "Profile,Sign Out,Delete".split(",")
-  const restoreScrolling = () => {
-    document.body.style.overflowY = 'auto';
-    document.body.style.height = 'unset';
-  }
   useEffect(() => {
-    restoreScrolling()
-    // if(localStorage.getItem('loggedIn')===null){
-    //   localStorage.setItem('loggedIn', false)
-    // }else{
-    //   setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: localStorage.getItem('loggedIn')}}))
-    // }
+    const userSignedIn = localStorage.getItem('loggedIn') === "true"
+    if(localStorage.getItem('loggedIn')===null){
+      localStorage.setItem('loggedIn', false)
+    }else{
+      if(userSignedIn){
+        setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: userSignedIn, }}))                
+      }
+      else setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: userSignedIn}}))
+    }
+    console.log(`user status - Signed in: ${userSignedIn}`)
 
   }, [])
   return (

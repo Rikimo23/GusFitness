@@ -7,7 +7,7 @@ export default function GlossaryPage() {
     <>
       <NavBar />
       <WrapperComponent>
-        <div className="pageHeader">Glossary Index</div>
+        <div className="pageMainTitle">Glossary Index</div>
         <GlossaryDefinitionComponent />
       </WrapperComponent>
     </>

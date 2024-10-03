@@ -34,12 +34,23 @@ export default function TrackerTemplate() {
     });
   };
 
+  //Handle exerciseName change
+  const handleExerciseNameChange = (index, value) => {
+    setExercises((prev) => {
+      const updatedExercises = [...prev];
+      updatedExercises[index] = value;
+      return updatedExercises;
+    });
+  }
+
+
   // Handle form submission for exercises
   const handleSubmit = async (event) => {
     event.preventDefault();
+   
     try {
       const exerciseTrackers = formData.flat().map((data, index) => ({
-        exerciseName: `Exercise ${index + 1}`, // Adjust this as needed
+        exerciseName: exercises[index], // Adjust this as needed
         sets: index + 1, // Assign the set number to sets
         reps: data.reps, // Extract reps from the data
         weight: data.weight, // Extract weight from the data
@@ -111,12 +122,13 @@ export default function TrackerTemplate() {
       <form onSubmit={handleSubmit}>
         <TableContainer>
           <FirstColumn>
-            {generator(6).map((comp) => (
+            {generator(6).map((comp, index) => (
               <input
                 type="text"
                 placeholder='Exercise name'
                 key={`editcell-${comp}`}
                 className="editableCells"
+                onChange={(e) => handleExerciseNameChange(index, e.target.value)}
               />
             ))}
           </FirstColumn>
