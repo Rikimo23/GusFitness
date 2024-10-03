@@ -46,8 +46,8 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined }) {
     }
 
     useEffect(() => {
-        console.clear()
-        console.log(`user name: ${newUserInfo.userName} password: ${newUserInfo.password}, email: ${newUserInfo.email} bmi: ${newUserInfo.bmi}`)
+        // console.clear()
+        // console.log(`user name: ${newUserInfo.userName} password: ${newUserInfo.password}, email: ${newUserInfo.email} bmi: ${newUserInfo.bmi}`)
         if (signUpSubmitted) signUp()
     }, [newUserInfo, signUpSubmitted])
     return (

@@ -16,6 +16,7 @@ public class Nutrition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String Name;
     private Integer calories;
     private Integer protein;
     private Integer carbs;

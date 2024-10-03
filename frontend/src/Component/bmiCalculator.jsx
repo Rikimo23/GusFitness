@@ -4,8 +4,8 @@ export default function BMIComponent({action}) {
   const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
   const [bmiUpdated, setBmiUpdated] = useState(false)
 
-  console.log(action)
-  console.log(bmiInfo)
+  // console.log(action)
+  // console.log(bmiInfo)
   const getAge =(age)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{age: age}})

@@ -1,10 +1,11 @@
 import {React, useState, useEffect, useRef} from 'react'
-import {anatomySvgs} from "./svgAnatomySvgs"
 import anatomyFront from "../../public/anatomyFront.png";
 import anatomyBack from "../../public/anatomyBack.png";
+import AnatomyBackView from './AnatomyBackView';
+import AnatomyFrontView from './AnatomyFrontView'
 
 
-export default function AnatomyMapComponent() {
+export default function AnatomyMapComponent({setPartClicked}) {    
 
     const innerDiagramContainerRef = useRef(null)
     useEffect(()=>{
@@ -22,7 +23,6 @@ export default function AnatomyMapComponent() {
             window.removeEventListener("keydown", onKeyDown)
         }
     }, [])
-    
   return (
     <div id="parentDiagramContainer">
         <button onClick={()=>{
@@ -38,11 +38,11 @@ export default function AnatomyMapComponent() {
             ref= {innerDiagramContainerRef}           
         >
             <div id="frontDiagram">
-                {anatomySvgs.front}
+                <AnatomyFrontView action={setPartClicked}/>
                 <img src={anatomyFront} alt=''></img>
             </div>
             <div id="backDiagram">
-                {anatomySvgs.back}
+                <AnatomyBackView action={setPartClicked}/>
                 <img src={anatomyBack} alt=''></img>
                 
             </div>

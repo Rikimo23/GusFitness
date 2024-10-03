@@ -405,3 +405,19 @@ li svg {
 .setContainer {
   @apply max-w-[200px];
 }
+
+.videoContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  div > p{
+    margin-bottom: 6px;
+  }
+  div:has(iframe){
+    display: contents;
+  }
+}

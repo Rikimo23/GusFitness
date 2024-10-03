@@ -1,5 +1,6 @@
 [
   {
+    "name": "Meal 1",
     "calories": 2000,
     "protein": 150,
     "carbs": 250,
@@ -10,9 +11,9 @@
     "dinner": "steak",
     "snack3": "yogurt",
     "fats": 70
-
   },
   {
+    "name": "Meal 2",
     "calories": 2200,
     "protein": 160,
     "carbs": 260,
@@ -23,9 +24,9 @@
     "dinner": "fish",
     "snack3": "protein bar",
     "fats": 80
-
   },
   {
+    "name": "Meal 3",
     "calories": 1800,
     "protein": 140,
     "carbs": 230,
@@ -36,9 +37,9 @@
     "dinner": "chicken",
     "snack3": "granola",
     "fats": 60
-
   },
   {
+    "name": "Meal 4",
     "calories": 2100,
     "protein": 155,
     "carbs": 240,
@@ -49,9 +50,9 @@
     "dinner": "pork",
     "snack3": "hummus",
     "fats": 75
-
   },
   {
+    "name": "Meal 5",
     "calories": 2300,
     "protein": 165,
     "carbs": 270,
@@ -62,9 +63,9 @@
     "dinner": "shrimp",
     "snack3": "cottage cheese",
     "fats": 85
-
   },
   {
+    "name": "Meal 6",
     "calories": 1900,
     "protein": 145,
     "carbs": 220,
@@ -75,9 +76,9 @@
     "dinner": "tofu",
     "snack3": "dark chocolate",
     "fats": 65
-
   },
   {
+    "name": "Meal 7",
     "calories": 2400,
     "protein": 170,
     "carbs": 280,
@@ -88,9 +89,9 @@
     "dinner": "duck",
     "snack3": "popcorn",
     "fats": 90
-
   },
   {
+    "name": "Meal 8",
     "calories": 2500,
     "protein": 175,
     "carbs": 290,
@@ -101,9 +102,9 @@
     "dinner": "lamb",
     "snack3": "trail mix",
     "fats": 95
-
   },
   {
+    "name": "Meal 9",
     "calories": 2600,
     "protein": 180,
     "carbs": 300,
@@ -114,9 +115,9 @@
     "dinner": "veal",
     "snack3": "fruit salad",
     "fats": 100
-
   },
   {
+    "name": "Meal 10",
     "calories": 2700,
     "protein": 185,
     "carbs": 310,
@@ -127,9 +128,9 @@
     "dinner": "goat",
     "snack3": "rice cakes",
     "fats": 105
-
   },
   {
+    "name": "Meal 11",
     "calories": 2800,
     "protein": 190,
     "carbs": 320,
@@ -140,9 +141,9 @@
     "dinner": "rabbit",
     "snack3": "pretzels",
     "fats": 110
-
   },
   {
+    "name": "Meal 12",
     "calories": 2900,
     "protein": 195,
     "carbs": 330,
@@ -153,6 +154,5 @@
     "dinner": "quail",
     "snack3": "crackers",
     "fats": 115
-
   }
 ]

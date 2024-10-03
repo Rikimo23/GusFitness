@@ -16,10 +16,10 @@ public class ExerciseTrackerController {
     @Autowired
     private ExerciseTrackerRepository exerciseTrackerRepository;
 
-    @GetMapping
-    public List<ExerciseTracker> getAllExerciseTrackers() {
-        return exerciseTrackerRepository.findAll();
-    }
+////    @GetMapping
+////    public List<ExerciseTracker> getAllExerciseTrackers() {
+////        return exerciseTrackerRepository.findAll();
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ExerciseTracker> getExerciseTrackerById(@PathVariable Integer id) {
@@ -28,25 +28,9 @@ public class ExerciseTrackerController {
     }
 
     @PostMapping("/create")
-    public ExerciseTracker createExerciseTracker(@RequestBody ExerciseTracker exerciseTracker) {
-        return exerciseTrackerRepository.save(exerciseTracker);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<ExerciseTracker> updateExerciseTracker(@PathVariable Integer id, @RequestBody ExerciseTracker exerciseTrackerDetails) {
-        Optional<ExerciseTracker> exerciseTracker = exerciseTrackerRepository.findById(id);
-        if (exerciseTracker.isPresent()) {
-            ExerciseTracker updatedExerciseTracker = exerciseTracker.get();
-            updatedExerciseTracker.setExerciseName(exerciseTrackerDetails.getExerciseName());
-            updatedExerciseTracker.setSets(exerciseTrackerDetails.getSets());
-            updatedExerciseTracker.setReps(exerciseTrackerDetails.getReps());
-            updatedExerciseTracker.setWeight(exerciseTrackerDetails.getWeight());
-            updatedExerciseTracker.setUser(exerciseTrackerDetails.getUser());
-            exerciseTrackerRepository.save(updatedExerciseTracker);
-            return ResponseEntity.ok(updatedExerciseTracker);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<List<ExerciseTracker>> createExerciseTrackers(@RequestBody List<ExerciseTracker> exerciseTrackers) {
+        List<ExerciseTracker> savedTrackers = exerciseTrackerRepository.saveAll(exerciseTrackers);
+        return ResponseEntity.ok(savedTrackers);
     }
 
     @DeleteMapping("/{id}")
