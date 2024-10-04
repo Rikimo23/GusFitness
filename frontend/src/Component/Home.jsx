@@ -6,28 +6,11 @@ import ArmFlexComponent from './ArmFlexComponent'
 import RegisterFormSetup from './RegisterFormSetup'
 function Home() {
    const navigate = useNavigate()
-   // const [registerOpen, setRegisterOpen] = useState(false)
+   const signedIn = localStorage.getItem("loggedIn") === "true"? true: false
    const buttonClicked=()=>{
       navigate('/signup')
       // setRegisterOpen(true)
    }
-   // const exitButtonClicked=()=>{
-   //     setRegisterOpen(false)
-   //     document.body.style.overflowY = 'auto';
-   //     document.body.style.height= 'unset';
-   // }
-
-   // useEffect(() => {
-
-   //    async function fetchData() {
-   //       const response = await fetch('http://localhost:8081/api/users/1')
-   //       const data = await response.json()
-   //       console.log(data)
-   //    }
-
-   //    fetchData()
-   // },[])
-
    return (
       <>
          <NavBar />
@@ -37,7 +20,7 @@ function Home() {
                <p>
                   To provide accessible, effective, and personalized fitness resources that cater to your specific goals. Whether you’re looking to build muscle, get lean, or bulk up, we offer tailored workout routines, meal plans, and educational content to guide you every step of the way.
                </p>
-               <RegisterButton buttonClicked={buttonClicked} />
+               {!signedIn && <RegisterButton buttonClicked={buttonClicked} />}
             </SectionComp>
             <SectionComp imageSource="\public\img1.png" altText="some text"><p>Why I Started I understand that the fitness world can be overwhelming, with so much information and so many options available. That’s why I created this platform – to simplify your fitness journey and make it as straightforward as possible. With clear workout tutorials, a focus on understanding muscle groups, BMI tracking, and meal planning, we aim to equip you with the knowledge and tools you need to succeed.</p></SectionComp>
             <SectionComp imageSource="\public\img2.png" altText="some text"><p>We envision a world where fitness is accessible to all, where anyone can confidently work towards their goals with the right guidance and support. Our platform is here to help you not just reach your fitness targets, but to maintain a healthy lifestyle for the long term.</p></SectionComp>
@@ -47,7 +30,7 @@ function Home() {
             <SectionComp>
                <div id="homeBottomLetsGetStarted">
                   <p>Let’s work together to turn your fitness goals into reality! Click on “get started” button to help you with your BMI, workout plan, and your nutrition. </p>
-                  <RegisterButton buttonClicked={buttonClicked}/>
+                  {!signedIn && <RegisterButton buttonClicked={buttonClicked}/>}
                   <p>There is an option to make a account so you can be able to track you're progress.</p>
                </div>
             </SectionComp>

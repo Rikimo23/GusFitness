@@ -1,6 +1,7 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 
 export default function InputComponent({
+    labelName,
     name,
     placeHolderText,
     type,
@@ -8,13 +9,21 @@ export default function InputComponent({
     inputModeVal = "text",
     getValue
   }){
+    const [formattedName, setFormattedName] = useState("")
+    useEffect(()=>{
+      if(name){
+        setFormattedName(name.replace("-", " "))
+      }
+    },[name])
+    
     return (
       <div className="inputComponent">
-        <label>{name}</label>
+        <label>{labelName}</label>
         <input
           type={type}
           inputMode={inputModeVal}
           placeholder={placeHolderText}
+          name={name}
           min={limits.min}
           max={limits.max}
           required

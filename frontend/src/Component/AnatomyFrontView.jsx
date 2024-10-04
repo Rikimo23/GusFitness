@@ -6,6 +6,7 @@ export default function AnatomyFrontView({action = undefined}){
         console.log(`part clicked: ${partClicked}`)
         if(action !== undefined) action(partClicked)
     },[partClicked])
+
     const onPartClicked=(event)=>{
         if(event.target.tagName === "path"){
             setPartClicked(event.target.getAttribute('data-part-name'))

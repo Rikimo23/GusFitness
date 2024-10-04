@@ -1,15 +1,10 @@
-import {React, useState, useRef} from 'react'
+import { React, useState, useRef } from 'react'
 import emailjs from "@emailjs/browser";
 import InputComponent from './InputComponent';
 export default function ContactUsForm() {
-    const formRef = useRef(null)
-    const [messageSubmitted, setMessageSubmitted] = useState(false)
-    const submitEmailMessage=(e)=>{
-        <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-
-
+  const formRef = useRef(null)
+  const [messageSubmitted, setMessageSubmitted] = useState(false)
+  const submitEmailMessage = (e) => {
     emailjs
       .sendForm("service_1em5lwj", "template_rzj10z4", formRef.current, {
         publicKey: "cGLOiQADyQlQNdfFc",
@@ -26,31 +21,36 @@ export default function ContactUsForm() {
         }
       );
     e.target.reset();
-        e.preventDefault();
-    }
+    e.preventDefault();
+  }
   return (
     <div>
-        <form id= "contactUsForm" action="" method="post" ref={formRef}>
-            <InputComponent 
-                name="First Name"            
-                placeHolderText={"Name"}
-                type={"text"}
-                required
-            />
-            <InputComponent 
-                name="Last Name"            
-                placeHolderText={"Last Name (optional)"}
-                type={"text"}
-            />
-            <InputComponent 
-                name="Email"            
-                placeHolderText={"email"}
-                type={"email"}
-                required
-            />
-            <textarea name="textArea" id="textAreaContactUs" placeholder='Your message' required></textarea>
-            <input className= "submitFormButton" type='submit' value="Submit"/>
-        </form>
+      <form id="contactUsForm"
+       onSubmit={submitEmailMessage}
+       method="post" ref={formRef}>
+        <InputComponent
+          labelName="Name"
+          name="user_name"
+          placeHolderText={"Name"}
+          type={"text"}
+          required
+        />
+        <InputComponent
+          labelName="Subject"
+          name="user_subject"
+          placeHolderText={"subject"}
+          type={"text"}
+        />
+        <InputComponent
+          labelName="Email"
+          name="user_email"
+          placeHolderText={"email"}
+          type={"email"}
+          required
+        />
+        <textarea name="message" id="textAreaContactUs" placeholder='Your message' required></textarea>
+        <input className="submitFormButton" type='submit' value="Submit" />
+      </form>
     </div>
   )
 }

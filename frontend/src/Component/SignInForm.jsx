@@ -1,9 +1,20 @@
 import {React, useState, useEffect} from 'react'
 import InputComponent from './InputComponent';
+import {useNavigate} from 'react-router-dom'
 export default function SignInForm(){
   const [userInfo, setUserInfo] = useState({email: "", password:""})
+  const [users, setUsers] = useState([])
+  const navigate = useNavigate()
   useEffect(()=>{
-    // console.table(userInfo)
+    if(users.length <= 0 && users === null) return 
+    const userEmail = userInfo.email.toLowerCase() 
+    const userPassword = userInfo.password.toLowerCase()
+    const fetchedUserEmail = users.find(user=> user.email.toLowerCase()) 
+    const fetchedUserPassword = users.find(user=> user.password.toLowerCase()) 
+    if(fetchedUserEmail === userEmail && fetchedUserPassword === userPassword) {
+      console.log("Welcome back you bum!")
+      navigate("/bmi")
+    }
   },[userInfo])
   const logIn=(e)=>{
     const getUsers = async()=>{
@@ -13,8 +24,11 @@ export default function SignInForm(){
           console.log(response.status)
           return
         }
-        const users = await response.json();
-        console.table(users)
+        const AllUsers = await response.json();
+        setUsers(()=>[...AllUsers])
+        navigate("/bmi") 
+        localStorage.setItem("loggedIn", "true")
+        console.table(AllUsers)
       }
       catch(error){
         console.error(error);
@@ -27,7 +41,8 @@ export default function SignInForm(){
     <div>
         <form onSubmit={logIn} method="post">
             <InputComponent 
-                name="Email"            
+                name={"email"}
+                labelName={"Email"}
                 placeHolderText={"Email"}
                 type={"email"}
                 getValue={(info)=>{
@@ -37,7 +52,8 @@ export default function SignInForm(){
                 //wow//
             />
             <InputComponent 
-                name="Password"            
+                name={"password"}
+                labelName={"Password"}
                 placeHolderText={"Password"}
                 type={"password"}
                 getValue={(info)=>{

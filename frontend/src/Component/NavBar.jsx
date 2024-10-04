@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 import HealthOptionsContainer from "../component/HealthOptionsContainer"
 import DropDownMenu from "../Component/DropDownMenu"
+import {useNavigate} from "react-router-dom"
 export default function NavBar({ navigationLinks }) {
   const [pageLoaded, setPageLoaded] = useState(false)
-  const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: false, profileSubMenuEnabled: false })
-  
+  const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: localStorage.getItem("loggedIn"), profileSubMenuEnabled: false })
+  const navigate = useNavigate()
   const setSubOptionsEnabled = (isEnabled) => {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: isEnabled, profileSubMenuEnabled: false } }))
   }
@@ -14,19 +15,20 @@ export default function NavBar({ navigationLinks }) {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: false, profileSubMenuEnabled: isEnabled } }))
   }
   const funs = [
-    () => console.log("Go to Profile"),
     () => {
       setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
       localStorage.setItem('loggedIn', false)
+      navigate("/")
     },
     () => {
       console.log("Profile Deleted")  
       setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
+      navigate("/")
       localStorage.setItem('loggedIn', false)
     } 
   ]
 
-  const menuOptions = "Profile,Sign Out,Delete".split(",")
+  const menuOptions = "Sign Out,Delete".split(",")
   useEffect(() => {
     const userSignedIn = localStorage.getItem('loggedIn') === "true"
     if(localStorage.getItem('loggedIn')===null){

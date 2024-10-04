@@ -4,8 +4,6 @@ export default function BMIComponent({action}) {
   const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
   const [bmiUpdated, setBmiUpdated] = useState(false)
 
-  // console.log(action)
-  // console.log(bmiInfo)
   const getAge =(age)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{age: age}})
@@ -62,8 +60,9 @@ export default function BMIComponent({action}) {
       <h1>BMI Calculator</h1>
       <form onSubmit={getBMI} method="post">
         <InputComponent
+          labelName={"Age"}
           type={"number"}
-          name={"Age"}
+          name={"age"}
           placeHolderText={"e.i 25"}
           inputModeVal="numeric"
           getValue ={getAge}          
@@ -72,8 +71,9 @@ export default function BMIComponent({action}) {
           <span>Height</span>
           <div id="heightCombo">
             <InputComponent
+              labelName={"Feet"}
               type={"number"}
-              name={"Feet"}
+              name={"feet"}
               placeHolderText={"e.i 5"}
               limits={{ min: 1, max: 10 }}
               inputMode={"numeric"}
@@ -81,7 +81,8 @@ export default function BMIComponent({action}) {
             />
             <InputComponent
               type={"number"}
-              name={"Inches"}
+              labelName={"Inches"}
+              name={"inches"}
               placeHolderText={"e.i 10"}
               limits={{ min: 0, max: 12 }}
               inputMode={"numeric"}
@@ -91,7 +92,8 @@ export default function BMIComponent({action}) {
         </div>
         <InputComponent
           type={"number"}
-          name={"Weight"}
+          name={"weight"}
+          labelName={"Weight"}
           placeHolderText={"e.i 140lbs"}
           limits={{ min: 1, max: 800 }}
           getValue ={getLbs}

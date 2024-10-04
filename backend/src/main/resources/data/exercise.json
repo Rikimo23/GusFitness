@@ -10,7 +10,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/VT-O6YIP-II",
-    "muscleGroups": ["Rear Deltoids", "Upper Back"]
+    "muscleGroups": ["rear deltoids", "upper back"]
   },
   {
     "name": "Reversed Barbell Shrug",
@@ -22,7 +22,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/fK1PwomoAs8",
-    "muscleGroups": ["Trapezius"]
+    "muscleGroups": ["trapezius"]
   },
   {
     "name": "Dumbbell Lateral Raise",
@@ -34,7 +34,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/fK1PwomoAs8",
-    "muscleGroups": ["Lateral Deltoids"]
+    "muscleGroups": ["lateral deltoids"]
   },
   {
     "name": "Dumbbell Shrugs",
@@ -46,7 +46,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/_t3lrPI6Ns4",
-    "muscleGroups": ["Trapezius"]
+    "muscleGroups": ["trapezius"]
   },
   {
     "name": "Dumbbell Shoulder Press",
@@ -58,7 +58,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/_t3lrPI6Ns4",
-    "muscleGroups": ["Deltoids", "Triceps"]
+    "muscleGroups": ["deltoids", "triceps"]
   },
   {
     "name": "Bent Over Dumbbell Flyes",
@@ -70,7 +70,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/YhIrOOsL4bA",
-    "muscleGroups": ["Rear Deltoids", "Upper Back"]
+    "muscleGroups": ["rear Deltoids", "upper Back"]
   },
   {
     "name": "Smith Machine Shoulder Press",
@@ -83,7 +83,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/OLqZDUUD2b0",
-    "muscleGroups": ["Deltoids", "Triceps"]
+    "muscleGroups": ["deltoids", "triceps"]
   },
   {
     "name": "Leverage Leg Curl",
@@ -95,7 +95,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/Cl-TwYuSnq0",
-    "muscleGroups": ["Hamstrings"]
+    "muscleGroups": ["hamstrings"]
   },
   {
     "name": "Leg Press",
@@ -107,7 +107,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/Cl-TwYuSnq0",
-    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes"]
+    "muscleGroups": ["quadriceps", "hamstrings", "glutes"]
   },
   {
     "name": "Squat",
@@ -120,7 +120,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/yZmx_Ac3880",
-    "muscleGroups": ["Quadriceps", "Hamstrings", "Glutes", "Core"]
+    "muscleGroups": ["quadriceps", "hamstrings", "glutes", "core"]
   },
   {
     "name": "Seated Leg Curl",
@@ -132,7 +132,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/m0GcZ24pK6k",
-    "muscleGroups": ["Hamstrings"]
+    "muscleGroups": ["hamstrings"]
   },
   {
     "name": "Hip Thrust Machine",
@@ -144,7 +144,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/Orxowest56U",
-    "muscleGroups": ["Glutes", "Hamstrings"]
+    "muscleGroups": ["glutes", "hamstrings"]
   },
   {
     "name": "Deadlift",
@@ -157,7 +157,7 @@
     ],
     "difficulty": "Hard",
     "url": "https://www.youtube.com/embed/UVucPKyQVLU",
-    "muscleGroups": ["Hamstrings", "Glutes", "Lower Back", "Core"]
+    "muscleGroups": ["hamstrings", "glutes", "lower back", "core"]
   },
   {
     "name": "Smith Machine Calf Raises",
@@ -169,7 +169,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/AweC3UaM14o",
-    "muscleGroups": ["Calves"]
+    "muscleGroups": ["calves"]
   },
   {
     "name": "Machine Calf Raises",
@@ -181,15 +181,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/hh5516HCu4k",
-    "muscleGroups": ["Calves"]
-  },
-  {
-    "name": "Calf Raises",
-    "description": "A basic exercise for calf development.",
-    "steps": [
-      "Stand on a raised surface with your heels hanging off.",
-      "Raise your heels as high as possible, then lower back."
-    ]
+    "muscleGroups": ["calves"]
   },
   {
     "name": "Push Ups",
@@ -201,7 +193,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/g_E7_q1z2bo",
-    "muscleGroups": ["Chest", "Triceps", "Shoulders", "Core"]
+    "muscleGroups": ["chest", "triceps", "shoulders", "core"]
   },
   {
     "name": "Incline Smith Machine Bench Press",
@@ -213,7 +205,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/0pkjOk0EiAk",
-    "muscleGroups": ["Upper Chest", "Triceps", "Shoulders"]
+    "muscleGroups": ["upper chest", "triceps", "shoulders"]
   },
   {
     "name": "Chest Dumbbell Fly",
@@ -225,7 +217,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/8urE8Z8AMQ4",
-    "muscleGroups": ["Chest", "Shoulders"]
+    "muscleGroups": ["chest", "shoulders"]
   },
   {
     "name": "Lat Pulldown",
@@ -237,7 +229,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/Nhvz9EzdJ4U",
-    "muscleGroups": ["Latissimus Dorsi", "Biceps", "Upper Back"]
+    "muscleGroups": ["latissimus dorsi", "biceps", "upper back"]
   },
   {
     "name": "Lat Pulldown on Floor Seated",
@@ -249,7 +241,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/JGeRYIZdojU",
-    "muscleGroups": ["Latissimus Dorsi", "Biceps", "Upper Back"]
+    "muscleGroups": ["latissimus dorsi", "biceps", "upper back"]
   },
   {
     "name": "Reversed Pull Row",
@@ -261,7 +253,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/OJu1JF7ftwE",
-    "muscleGroups": ["Back", "Biceps"]
+    "muscleGroups": ["back", "biceps"]
   },
   {
     "name": "Smith Machine Bent Row",
@@ -273,7 +265,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/KOaCM1HMwU0",
-    "muscleGroups": ["Back", "Biceps"]
+    "muscleGroups": ["back", "biceps"]
   },
   {
     "name": "Pull Ups",
@@ -285,7 +277,7 @@
     ],
     "difficulty": "Hard",
     "url": "https://www.youtube.com/embed/3QcJggd_L24",
-    "muscleGroups": ["Back", "Biceps", "Shoulders"]
+    "muscleGroups": ["back", "biceps", "shoulders"]
   },
   {
     "name": "Bicep Curl",
@@ -297,7 +289,7 @@
     ],
     "difficulty": "Easy",
     "url": "https://www.youtube.com/embed/aAggnpPyR6E",
-    "muscleGroups": ["Biceps"]
+    "muscleGroups": ["biceps"]
   },
   {
     "name": "Bench Press",
@@ -309,7 +301,7 @@
     ],
     "difficulty": "Medium",
     "url": "https://www.youtube.com/embed/HnHuhf4hEWY",
-    "muscleGroups": ["Chest", "Triceps", "Shoulders"]
+    "muscleGroups": ["chest", "triceps", "shoulders"]
   },
   {
     "name": "Incline Bench Press",
@@ -321,6 +313,6 @@
     ],
     "difficulty": "Hard",
     "url": "https://www.youtube.com/embed/XSza8hVTlmM",
-    "muscleGroups": ["Upper Chest", "Triceps", "Shoulders"]
+    "muscleGroups": ["upper chest", "triceps", "shoulders"]
   }
 ]
