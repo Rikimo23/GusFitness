@@ -8,7 +8,6 @@ export default function SignUpPage() {
     <>
       <NavBar />
       <WrapperComponent>
-        {/* <SignUpForm /> */}
         <RegisterFormSetup />
       </WrapperComponent>
     </>

@@ -18,12 +18,13 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
         {
             setTimeout(()=>{
                 setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false } }))
+                setSignUpSubmitted(true)
             }, 1500)
-            setSignUpSubmitted(true)
+           
         }
     }
     const signUp = async () => {
-        // console.log("sign up called")
+        console.log("sign up called")
         try {
             const response = await fetch("http://localhost:8081/api/users/register", {
                 method: "POST",

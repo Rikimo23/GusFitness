@@ -5,7 +5,7 @@ import AnatomyBackView from './AnatomyBackView';
 import AnatomyFrontView from './AnatomyFrontView'
 
 
-export default function AnatomyMapComponent({setPartClicked}) {    
+export default function AnatomyMapComponent({setPartClicked, setShowWorkout}) {    
 
     const innerDiagramContainerRef = useRef(null)
     useEffect(()=>{
@@ -38,11 +38,11 @@ export default function AnatomyMapComponent({setPartClicked}) {
             ref= {innerDiagramContainerRef}           
         >
             <div id="frontDiagram">
-                <AnatomyFrontView action={setPartClicked}/>
+                <AnatomyFrontView action={setPartClicked} setShowWorkout={setShowWorkout}/>
                 <img src={anatomyFront} alt=''></img>
             </div>
             <div id="backDiagram">
-                <AnatomyBackView action={setPartClicked}/>
+                <AnatomyBackView action={setPartClicked} setShowWorkout={setShowWorkout}/>
                 <img src={anatomyBack} alt=''></img>
                 
             </div>

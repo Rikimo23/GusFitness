@@ -444,6 +444,8 @@ div > :has(form){
 
 .partClickedDisplay {
   @apply flex text-[2rem] text-[color:var(--main-purple-color)] absolute max-w-[300px] text-center font-bold left-2.5 top-2/4;
+ 
+
   animation-name: slideInFromLeft;
   animation-duration: 0.4s;
 }
@@ -453,4 +455,23 @@ div > :has(form){
   align-items: center;
   gap: 5px;
   margin-block: 30px; 
+  h1{
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--main-purple-color);
+  }
+  p:first-of-type{
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  p:nth-of-type(2){
+    font-size: 1.2rem;
+    color: var(--main-purple-color);
+    font-weight: 700;    
+  }
+  p:nth-of-type(4){
+    font-size: 1.2rem;
+    color: var(--main-purple-color);
+    font-weight: 700;    
+  }
 }
