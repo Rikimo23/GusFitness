@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 import HealthOptionsContainer from "../component/HealthOptionsContainer"
 import DropDownMenu from "../Component/DropDownMenu"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import getUsers from '../Component/getUsers';
 export default function NavBar({ navigationLinks }) {
   const [pageLoaded, setPageLoaded] = useState(false)
   const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: localStorage.getItem("loggedIn"), profileSubMenuEnabled: false })
@@ -16,28 +17,58 @@ export default function NavBar({ navigationLinks }) {
   }
   const funs = [
     () => {
-      setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
+      setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: false } }))
       localStorage.setItem('loggedIn', false)
       navigate("/")
     },
     () => {
-      console.log("Profile Deleted")  
-      setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: false}}))
+      console.log("Profile Deleted")
+      setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: false } }))
+      if (getUsers() !== -1) {
+        const deleteUser = async () => {
+          const url = `http://localhost:8081/api/users/4`;
+
+          try {
+            const response = await fetch(url, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
+
+            if (!response.ok) {
+              throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+
+            let result;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                result = await response.json();
+            } else {
+                result = await response.text();
+            }
+        
+          } catch (error) {
+            console.error('There was a problem with the delete request:', error);
+          }
+        }
+        deleteUser()
+      }
       navigate("/")
       localStorage.setItem('loggedIn', false)
-    } 
+    }
   ]
 
   const menuOptions = "Sign Out,Delete".split(",")
   useEffect(() => {
     const userSignedIn = localStorage.getItem('loggedIn') === "true"
-    if(localStorage.getItem('loggedIn')===null){
+    if (localStorage.getItem('loggedIn') === null) {
       localStorage.setItem('loggedIn', false)
-    }else{
-      if(userSignedIn){
-        setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: userSignedIn, }}))                
+    } else {
+      if (userSignedIn) {
+        setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: userSignedIn, } }))
       }
-      else setOptionsObject((oldObj)=>({...oldObj, ...{signedIn: userSignedIn}}))
+      else setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: userSignedIn } }))
     }
     console.log(`user status - Signed in: ${userSignedIn}`)
 

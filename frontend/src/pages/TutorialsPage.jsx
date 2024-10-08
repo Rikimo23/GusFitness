@@ -1,9 +1,7 @@
 import { React, useEffect, useState, useRef } from 'react'
-import WrapperComponent from '../component/WrapperComponent'
+import WrapperComponent from '../Component/WrapperComponent'
 import NavBar from '../Component/NavBar'
 import AnatomyMapComponent from '../component/AnatomyMapComponent'
-import VideoContainer from '../Component/VideoContainer'
-import Video from './Video'
 
 export default function TutorialsPage() {
   const [partClicked, setPartClicked] = useState("")
@@ -61,7 +59,9 @@ export default function TutorialsPage() {
           <iframe src={showWorkout} width="960" height="540"></iframe>  
           <p>Description</p>
           <p>{chosenWorkout.description}</p>
+          
           {/* <p>Steps:</p> */}
+          {/* Steps is returning undefined even though it's in the data base. */}
           {/* {chosenWorkout.steps.map((step, count)=><div key={`step-index${count}`}>{step}</div>)}           */}
         </div>}
       </WrapperComponent>

@@ -40,20 +40,20 @@ export default function BMIComponent({action}) {
     return meters 
   }
   const getBMI=(e)=>{
+    e.preventDefault()    
     const convertedMeters = feetToMeters(bmiInfo.feet)+inchesToMeters(bmiInfo.inches)
     const finalBmi = (lbsToKilograms(bmiInfo.lbs) / (Math.pow(convertedMeters, 2))).toFixed(1)
-    setBmiInfo((currentInfo)=>({...currentInfo, ...{bmi: finalBmi}}))   
+    setBmiInfo((currentInfo)=>({...currentInfo, bmi: finalBmi}))   
     setBmiUpdated(true)
-    e.preventDefault()    
   }
   useEffect(()=>{
     if(bmiUpdated){
       if(action !== undefined){
-        action({bmi: bmiInfo.bmi})
+        action(bmiInfo.bmi)
         console.log(`bmi has updated from the bmi calculator ${bmiInfo.bmi}`)
       }
     }
-  },[bmiUpdated])
+  },[bmiUpdated, action, bmiInfo.bmi])
 
   return (
     <div id="bmiCalculator">

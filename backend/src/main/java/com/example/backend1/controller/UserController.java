@@ -60,6 +60,12 @@ public class UserController {
         }
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getUserCount() {
+        long count = userRepository.count();
+        return ResponseEntity.ok(count);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User newUser) {
         Optional<User> existingUser = userRepository.findByEmail(newUser.getEmail());

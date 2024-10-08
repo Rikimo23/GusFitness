@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useRef } from 'react'
 import SignUpForm from "../Component/SignUpForm"
 import BmiCalculator from "../Component/bmiCalculator"
+import getUsers from "../Component/getUsers"
 import {useNavigate} from 'react-router-dom'
 export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
     const [enabledForms, setEnabledForms] = useState({ signUp: false, bmiCalculator: true })
@@ -8,51 +9,66 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
     const [signUpSubmitted, setSignUpSubmitted] = useState(false) 
     const navigate = useNavigate()
     const getUserInfo = (userInfo) => {
-        setNewUserInfo(currentInfo => ({ ...currentInfo, ...userInfo }))
-        setSignUpSubmitted(true)
+        const allInfo = {...userInfo, ...newUserInfo}
+        console.table(newUserInfo)
+        setNewUserInfo(currentInfo => ({ ...currentInfo, ...allInfo }))
+        console.log('heres the new user info')
+        console.table(allInfo)
+        signUp(allInfo)
+        // setSignUpSubmitted(true)
     }
     const getBmiInfo = (bmiData) => {
-        setNewUserInfo((currentData) => ({ ...currentData, ...{ bmi: bmiData.bmi } }))        
+        setNewUserInfo((currentData) => ({ ...currentData, bmi: bmiData}))        
         
         if(!signUpSubmitted)
         {
-            setTimeout(()=>{
-                setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false } }))
-                setSignUpSubmitted(true)
-            }, 1500)
+            // setTimeout(()=>{
+                setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false } })) 
+                // setNewUserInfo((currentData) => ({ ...currentData, ...{bmi: bmiData}}))                
+            // }, 1500)
            
         }
     }
-    const signUp = async () => {
+    const signUp = async (userInfo) => {
         console.log("sign up called")
+        console.table(userInfo)
+        // try{
+        //     const usersAmountResponse = await fetch("http://localhost:8081/api/users/count") 
+        //     let usersAmount = 0
+        //     if(!usersAmountResponse.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+        //     else{
+        //         usersAmount = await usersAmountResponse.json()
+        //         console.log(`amount of users: ${usersAmount}`)
+        //     }
+        // }catch(err){console.error(err)}
+        getUsers()
+
         try {
+            
             const response = await fetch("http://localhost:8081/api/users/register", {
                 method: "POST",
-                body: JSON.stringify(newUserInfo),
+                body: JSON.stringify(userInfo),
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
             if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
-            const result = await response.json();
-            localStorage.setItem("loggedIn", "true")
-            navigate('/bmi')
-            console.log(result) 
+            else{
+                const result = await response.json();
+                localStorage.setItem("loggedIn", "true")
+                setSignUpSubmitted(true)            
+                console.log(result) 
+            }
         } catch (error) { console.error(error);}
     }
 
-    useEffect(() => {
-        // console.clear()
-        // console.log(`user name: ${newUserInfo.userName} password: ${newUserInfo.password}, email: ${newUserInfo.email} bmi: ${newUserInfo.bmi}`)
-        if (signUpSubmitted) signUp()
-    }, [newUserInfo, signUpSubmitted])
     return (
         <div id="registrationFormSetupContainer"
             tabIndex={0}
         >
             <div>
-                {enabledForms.signUp && <SignUpForm action={getUserInfo} />}
                 {enabledForms.bmiCalculator && <BmiCalculator action={getBmiInfo} />}
+                {enabledForms.signUp && <SignUpForm action={getUserInfo} />}
             </div>
         </div>
     )

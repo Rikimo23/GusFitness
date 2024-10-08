@@ -9,7 +9,7 @@ export default function SignUpForm({ action = undefined }) {
         if (action !== undefined) {
             action(newUserData)
             localStorage.setItem("loggedIn", "true")
-            navigate("/")
+            // navigate("/")
         }
         e.preventDefault();
     }
