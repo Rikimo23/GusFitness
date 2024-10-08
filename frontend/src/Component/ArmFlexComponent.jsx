@@ -10,6 +10,7 @@ export default function ArmFlexComponent({isHovered=false}) {
 
   return (
     <div className="svgArmContainer"> 
+    {/* This displays the component based on the isHovered prop. This creates the illusion of the arm svg flexing and relaxing */}
       {isHovered? <FlexedArm/>: <RelaxedArm/>}
     </div>
   )

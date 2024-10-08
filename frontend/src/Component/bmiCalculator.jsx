@@ -4,41 +4,49 @@ export default function BMIComponent({action}) {
   const [bmiInfo, setBmiInfo] = useState({feet: 0, inches:0, lbs: 0, age:0, bmi: 0})
   const [bmiUpdated, setBmiUpdated] = useState(false)
 
+  // Gets the age to calculate the bmi, and updates the bmiInfo state
   const getAge =(age)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{age: age}})
     )
   }
+  // Gets the feet to calculate the bmi, and updates the bmiInfo state
   const getFeet =(feet)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{feet: feet}})
     )
   }
+  // Gets the inches to calculate the bmi, and updates the bmiInfo state
   const getInches =(inches)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{inches: inches}})
     )
   }
+  // Gets the pounds to calculate the bmi, and updates the bmiInfo state
   const getLbs =(lbs)=>{
     setBmiInfo(
       (currentData)=>({...currentData, ...{lbs: lbs}})
     )
   }
+  // Converts pounds to kilograms, and updates the bmiInfo state
   const lbsToKilograms=(lbs)=>{
     const kbMultiplier = 0.45359237
     const kilograms = kbMultiplier * lbs
     return kilograms
   }
+  // Converts feet to meters, and updates the bmiInfo state
   const feetToMeters =(feet)=>{
     const meterMultiplier = 0.3048
     const meters = feet * meterMultiplier
     return meters 
   }
+  // Converts inches to meters, and updates the bmiInfo state
   const inchesToMeters =(inches)=>{
     const meterMultiplier = 0.0254
     const meters = inches * meterMultiplier
     return meters 
   }
+  // Calculates the bmi and updates the bmiInfo state
   const getBMI=(e)=>{
     e.preventDefault()    
     const convertedMeters = feetToMeters(bmiInfo.feet)+inchesToMeters(bmiInfo.inches)
@@ -46,6 +54,7 @@ export default function BMIComponent({action}) {
     setBmiInfo((currentInfo)=>({...currentInfo, bmi: finalBmi}))   
     setBmiUpdated(true)
   }
+  // This useEffect hook sends the bmi data to the parent component using the action function
   useEffect(()=>{
     if(bmiUpdated){
       if(action !== undefined){

@@ -1,5 +1,7 @@
 import React from 'react'
 
+// This function gathers all users from the backend, and returns just the number of current users
+//or -1 if there response is not ok
 export default function getUsers() {
     const allUsers= async()=>{
         try{

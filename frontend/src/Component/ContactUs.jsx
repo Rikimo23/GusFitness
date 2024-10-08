@@ -4,7 +4,7 @@ import emailjs from "@emailjs/browser";
 const ContactUs = () => {
   const form = useRef();
   const [messageSent, setMessageSent] = useState(false);
-
+  // This sends the message from the from to the email used through emailjs
   const sendEmail = (e) => {
     e.preventDefault();
 <script type="text/javascript"
@@ -27,6 +27,7 @@ const ContactUs = () => {
           setMessageSent(false);
         }
       );
+    // Resets the form after the message has been sent, or the form had errored.
     e.target.reset();
   };
 
