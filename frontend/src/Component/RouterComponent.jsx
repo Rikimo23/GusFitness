@@ -5,7 +5,6 @@ import {
 import App from '../App.jsx'
 import '../index.css'
 import ContactUsPage from '../pages/ContactUsPage.jsx'
-import MuscleGroupsPage from '../pages/MuscleGroupsPage.jsx'
 import NutritionPage from '../pages/NutritionPage.jsx';
 import TrackerPage from '../pages/TrackerPage.jsx';
 import GlossaryPage from '../pages/GlossaryPage.jsx';
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
     {
         path: "/bmi",
         element: <BMIPage />,
-    },
-    {
-        path: "/musclegroupsandworkoutplan",
-        element: <MuscleGroupsPage />
     },
     {
         path: "/nutritionandmealplan",

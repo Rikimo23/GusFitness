@@ -9,15 +9,20 @@ export default function NavBar({ navigationLinks }) {
   const [pageLoaded, setPageLoaded] = useState(false)
   const [optionsObject, setOptionsObject] = useState({ subOptionsEnabled: false, signedIn: localStorage.getItem("loggedIn"), profileSubMenuEnabled: false })
   const navigate = useNavigate()
+
+  //the health option in the navigation bar uses this to display all the sub options
   const setSubOptionsEnabled = (isEnabled) => {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: isEnabled, profileSubMenuEnabled: false } }))
   }
+  //sets the profile menu on and off
   const setProfileSubOptions = (isEnabled) => {
     setOptionsObject((oldObject) => ({ ...oldObject, ...{ subOptionsEnabled: false, profileSubMenuEnabled: isEnabled } }))
   }
+  //these functions are used by the profile menu suboptions
   const funs = [
     () => {
       setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: false } }))
+      //keeps the data available to the client so that we are able to log out the user.
       localStorage.setItem('loggedIn', false)
       navigate("/")
     },
@@ -25,6 +30,7 @@ export default function NavBar({ navigationLinks }) {
       console.log("Profile Deleted")
       setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: false } }))
       if (getUsers() !== -1) {
+        //deletes the user we call for, in this case, the user with id #4
         const deleteUser = async () => {
           const url = `http://localhost:8081/api/users/4`;
 
@@ -55,12 +61,14 @@ export default function NavBar({ navigationLinks }) {
         deleteUser()
       }
       navigate("/")
+      //logs the user out
       localStorage.setItem('loggedIn', false)
     }
   ]
 
   const menuOptions = "Sign Out,Delete".split(",")
   useEffect(() => {
+    //this turns the userSigned in into a boolean value to check for later
     const userSignedIn = localStorage.getItem('loggedIn') === "true"
     if (localStorage.getItem('loggedIn') === null) {
       localStorage.setItem('loggedIn', false)
@@ -86,9 +94,10 @@ export default function NavBar({ navigationLinks }) {
             {optionsObject.subOptionsEnabled && <HealthOptionsContainer mouseExit={setSubOptionsEnabled} />}
           </li>
           <li ><NavLink to="/contactus" className={({ isActive }) => { return isActive ? "activeNavbarElement" : "" }}>Contact Us</NavLink></li>
+          {/* Using conditional rendering to only display these two options when the user is not logged in */}
           {!optionsObject.signedIn && <li ><NavLink to="/signin" className={({ isActive }) => { return isActive ? "activeNavbarElement" : "" }}>Sign In</NavLink></li>}
           {!optionsObject.signedIn && <li ><NavLink to="/signup" className={({ isActive }) => { return isActive ? "activeNavbarElement" : "" }}>Sign Up</NavLink></li>}
-
+          {/* Display the signedIn component and its children only when signed in */}
           {optionsObject.signedIn && <SignInComponent mouseEntered={setProfileSubOptions}>
             {optionsObject.profileSubMenuEnabled && <DropDownMenu
               mouseExit={setProfileSubOptions}

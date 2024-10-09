@@ -1,4 +1,5 @@
 import { React, useState, useEffect, useRef } from 'react'
+import intersectingRect from '../Component/intersectingRect'
 
 export default function DropDownMenu({ mouseExit, menuOptions = [], optionsFunctions = [] }) {
     // mouseEntered lets the user interface know that the current menu is being hovered
@@ -11,9 +12,7 @@ export default function DropDownMenu({ mouseExit, menuOptions = [], optionsFunct
     This way we can make sure we're closing the menu when it's not being hovered/used.*/
     useEffect(() => {
         // check for bounding box intersection between a point and the rectangle box of the element
-        const intersectingRect = (rect, point) => {
-            return (rect.left <= point.x && rect.right >= point.x && rect.top <= point.y && rect.bottom >= point.y)
-        }
+        
         const leftClicked = (e) => {
             if (container.current &&
                 // if the mouse is no longer intersecting the menu element, set mouseEntered and mouseExit to false

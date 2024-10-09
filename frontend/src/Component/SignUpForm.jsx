@@ -13,12 +13,15 @@ export default function SignUpForm({ action = undefined }) {
         }
         e.preventDefault();
     }
+    // update the user name
     const getUserName = (userName) => {
         setNewUserData((currentData) => ({ ...currentData, ...{ username: userName } }))
     }
+    // update the user name password
     const getPassword = (password) => {
         setNewUserData((currentData) => ({ ...currentData, ...{ password: password } }))
     }
+    // update the user name email
     const getEmail = (email) => {
         setNewUserData((currentData) => ({ ...currentData, ...{ email: email } }))
     }

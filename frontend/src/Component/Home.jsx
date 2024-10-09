@@ -42,7 +42,7 @@ function Home() {
 }
 
 export default Home
-
+//this component allows for sections to be able to animate into place when scroll down the page as they come into the viewport
 const SectionComp = ({ imageSource, altText, children }) => {
    const [isVisible, setIsVisible] = useState(false);
    const ref = useRef();

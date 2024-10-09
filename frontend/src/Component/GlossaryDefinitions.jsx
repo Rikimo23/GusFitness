@@ -1,3 +1,4 @@
+// these are used in the glossary definition component inside the glossary page
 const glossary = [
     {
         letter: 'A',

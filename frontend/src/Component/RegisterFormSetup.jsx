@@ -8,6 +8,7 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
     const [newUserInfo, setNewUserInfo] = useState({ userName: "", password: "", email: "", bmi: 0 })
     const [signUpSubmitted, setSignUpSubmitted] = useState(false) 
     const navigate = useNavigate()
+    //Fetch the user data from the sign up form
     const getUserInfo = (userInfo) => {
         const allInfo = {...userInfo, ...newUserInfo}
         console.table(newUserInfo)
@@ -17,9 +18,10 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
         signUp(allInfo)
         // setSignUpSubmitted(true)
     }
+    //get the bmiInfo from the bmi calculator
     const getBmiInfo = (bmiData) => {
         setNewUserInfo((currentData) => ({ ...currentData, bmi: bmiData}))        
-        
+        // register the user only after submitting the sign up form
         if(!signUpSubmitted)
         {
             // setTimeout(()=>{

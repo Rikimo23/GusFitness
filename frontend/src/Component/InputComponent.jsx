@@ -28,7 +28,7 @@ export default function InputComponent({
           max={limits.max}
           required
           onChange={(e) => {
-            
+            // This limits all number types to a maximum limit
             if(type==="number"){
               if (e.currentTarget.value > limits.max){
                 e.currentTarget.value = limits.max;
@@ -36,6 +36,7 @@ export default function InputComponent({
               const val = Math.floor(e.currentTarget.value)
               e.currentTarget.value = val
             }
+            //this gives access of the inner value to the parent
             getValue(e.currentTarget.value)
           }}
         />

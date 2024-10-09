@@ -1,13 +1,14 @@
 import { React, useState, useEffect, useRef } from 'react'
 import { NavLink } from "react-router-dom";
+import intersectingRect from '../Component/intersectingRect'
 export default function HealthOptionsContainer({ mouseExit }) {
   const [mouseEntered, setMouseEntered] = useState(false)
   const container = useRef(null)
-  useEffect(() => {
-    const intersectingRect = (rect, point) => {
-      return (rect.left <= point.x && rect.right >= point.x && rect.top <= point.y && rect.bottom >= point.y)
-    }
+  /* This useEffect hook is used for checking if the mouse has entered the element using its bounding box. 
+    This way we can make sure we're closing the menu when it's not being hovered/used.*/
+  useEffect(() => {   
     const leftClicked = (e) => {
+      // if the mouse is no longer intersecting the menu element, set mouseEntered and mouseExit to false
       if (container.current &&
         !intersectingRect(container.current.getBoundingClientRect(), { x: e.clientX, y: e.clientY })) {
         setMouseEntered(false)
