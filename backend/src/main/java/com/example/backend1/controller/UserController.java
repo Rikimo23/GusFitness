@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -38,46 +38,13 @@ public class UserController {
         if (user.isPresent()) {
             User updatedUser = user.get();
             updatedUser.setUsername(userDetails.getUsername());
-            updatedUser.setPassword(userDetails.getPassword());
             updatedUser.setEmail(userDetails.getEmail());
-            updatedUser.setExerciseTrackers(userDetails.getExerciseTrackers());
-            updatedUser.setNutritions(userDetails.getNutritions());
+            updatedUser.setPassword(userDetails.getPassword());
             userRepository.save(updatedUser);
             return ResponseEntity.ok(updatedUser);
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) {
-            userRepository.delete(user.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/count")
-    public ResponseEntity<Long> getUserCount() {
-        long count = userRepository.count();
-        return ResponseEntity.ok(count);
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody User newUser) {
-        Optional<User> existingUser = userRepository.findByEmail(newUser.getEmail());
-        if (existingUser.isPresent()) {
-            return ResponseEntity.badRequest().body("Email is already in use");
-        }
-        Optional<User> usernameFound = userRepository.findByUsername(newUser.getUsername());
-        if (usernameFound.isPresent()) {
-            return ResponseEntity.badRequest().body("Username is already in use");
-        }
-        User registeredUser = userRepository.save(newUser);
-        return ResponseEntity.ok().body(newUser);
     }
 
     @PostMapping("/login")

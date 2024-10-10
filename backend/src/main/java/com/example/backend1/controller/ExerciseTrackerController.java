@@ -16,11 +16,6 @@ public class ExerciseTrackerController {
     @Autowired
     private ExerciseTrackerRepository exerciseTrackerRepository;
 
-////    @GetMapping
-////    public List<ExerciseTracker> getAllExerciseTrackers() {
-////        return exerciseTrackerRepository.findAll();
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity<ExerciseTracker> getExerciseTrackerById(@PathVariable Integer id) {
         Optional<ExerciseTracker> exerciseTracker = exerciseTrackerRepository.findById(id);
@@ -31,6 +26,22 @@ public class ExerciseTrackerController {
     public ResponseEntity<List<ExerciseTracker>> createExerciseTrackers(@RequestBody List<ExerciseTracker> exerciseTrackers) {
         List<ExerciseTracker> savedTrackers = exerciseTrackerRepository.saveAll(exerciseTrackers);
         return ResponseEntity.ok(savedTrackers);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ExerciseTracker> updateExerciseTracker(@PathVariable Integer id, @RequestBody ExerciseTracker updatedExerciseTracker) {
+        Optional<ExerciseTracker> existingExerciseTracker = exerciseTrackerRepository.findById(id);
+        if (existingExerciseTracker.isPresent()) {
+            ExerciseTracker exerciseTracker = existingExerciseTracker.get();
+            exerciseTracker.setExerciseName(updatedExerciseTracker.getExerciseName());
+            exerciseTracker.setSets(updatedExerciseTracker.getSets());
+            exerciseTracker.setReps(updatedExerciseTracker.getReps());
+            exerciseTracker.setWeight(updatedExerciseTracker.getWeight());
+            exerciseTrackerRepository.save(exerciseTracker);
+            return ResponseEntity.ok(exerciseTracker);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")

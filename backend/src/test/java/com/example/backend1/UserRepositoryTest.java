@@ -58,18 +58,3 @@ public class UserRepositoryTest {
         assertEquals("password", foundUser.get().getPassword());
     }
 }
-
-//    @Test
-//    public void testFindByUsername() {
-//        User user = new  User();
-//        user.setEmail("test@example.com");
-//        user.setUsername("testuser");
-//        user.setPassword("password");
-//        userRepository.save(user);
-//
-//        Optional<User> foundUser = userRepository.findByUsername("testuser");
-//        assertThat(foundUser).isPresent();
-//        assertThat(foundUser.get().getUsername()).isEqualTo("testuser");
-//
-//
-//    }

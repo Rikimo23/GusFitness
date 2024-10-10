@@ -5,16 +5,8 @@ export default function TrackerTemplate() {
   const [exercises, setExercises] = useState([]);
   const [formData, setFormData] = useState(Array(5).fill().map(() => Array(6).fill({ weight: '', reps: '' })));
   const [foodData, setFoodData] = useState({
-    calories: '',
-    protein: '',
-    carbs: '',
-    fats: '',
-    snack1: '',
-    snack2: '',
-    breakfast: '',
-    lunch: '',
-    dinner: '',
-    snack3: ''
+    calories: '', protein: '',  carbs: '',  fats: '',  snack1: '',
+    snack2: '', breakfast: '', lunch: '', dinner: '',  snack3: ''
   });
   const days = "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(",");
   const columCategories = "calories,protein,carbs,snack1,snack2,breakfast,lunch,dinner,snack3,fats,fiber,sodium,vitamins,macronutrients".split(",");
@@ -45,35 +37,71 @@ export default function TrackerTemplate() {
 
 
   // Handle form submission for exercises
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-   
-    try {
-      const exerciseTrackers = formData.flat().map((data, index) => ({
-        exerciseName: exercises[index], // Adjust this as needed
-        sets: index + 1, // Assign the set number to sets
-        reps: data.reps, // Extract reps from the data
-        weight: data.weight, // Extract weight from the data
-        user: { id: 1 } // Assuming user ID is 1, adjust as needed
-      }));
-
-      const response = await fetch('http://localhost:8081/api/exerciseTrackers/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(exerciseTrackers),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    let isSignedIn;
+    if(localStorage.getItem("loggedIn") === undefined) isSignedIn = undefined
+    else isSignedIn = localStorage.getItem("loggedIn") === "true"
+    const createTrackerData = async()=>{
+      try {
+        const exerciseTrackers = formData.flat().map((data, index) => ({
+          exerciseName: exercises[index], // Adjust this as needed
+          sets: index + 1, // Assign the set number to sets
+          reps: data.reps, // Extract reps from the data
+          weight: data.weight, // Extract weight from the data
+          user: { id: 1 } // Assuming user ID is 1, adjust as needed
+        }));
+  
+        const response = await fetch('http://localhost:8081/api/exerciseTrackers/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(exerciseTrackers),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        console.log('Submission successful:', result);
+        // Optionally, reset form data or provide feedback
+      } catch (error) {
+        console.error('Error submitting data:', error);
       }
-      const result = await response.json();
-      console.log('Submission successful:', result);
-      // Optionally, reset form data or provide feedback
-    } catch (error) {
-      console.error('Error submitting data:', error);
     }
+    const updateTrackerData = async()=>{
+      try {
+        const exerciseTrackers = formData.flat().map((data, index) => ({
+          exerciseName: exercises[index], // Adjust this as needed
+          sets: index + 1, // Assign the set number to sets
+          reps: data.reps, // Extract reps from the data
+          weight: data.weight, // Extract weight from the data
+          user: { id: 1 } // Assuming user ID is 1, adjust as needed
+        }));
+  
+        const response = await fetch(`http://localhost:8081/api/exerciseTrackers/${exerciseTrackers.user.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(exerciseTrackers),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        console.log('Submission successful:', result);
+        // Optionally, reset form data or provide feedback
+      } catch (error) {
+        console.error('Error submitting data:', error);
+      }
+
+    }
+    if(!isSignedIn) createTrackerData()
+    else updateTrackerData()
+    
   };
 
   const handleFoodSubmit = async (event) => {
