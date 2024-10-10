@@ -7,22 +7,35 @@ export default function SignInForm() {
   const [userInfoValid, setUserinfoValid] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {
+    // Make sure the array has users
     if (users.length <= 0 && users === null) return
+    // lowercase the email 
     const userEmail = userInfo.email.toLowerCase()
-    const userPassword = userInfo.password.toLowerCase()
-    const fetchedUserEmail = users.find(user => user.email.toLowerCase())
-    const fetchedUserPassword = users.find(user => user.password.toLowerCase())
-    if (fetchedUserEmail === userEmail && fetchedUserPassword === userPassword) {
-      console.log("Welcome back!")
+    // and get the password
+    const userPassword = userInfo.password
+    //find the user based on both the email, and the correct password. Email is not case sensitive, but the password is.
+    const validUser = users.find(user => user.email.toLowerCase() === userEmail && user.password === userPassword)
+    
+    if (validUser !== undefined) {
+      //show the user info in the console
+      console.table(validUser)
+      //show the user id, so we don't have to look at the user info all the time
+      console.log(`Your user id is ${validUser.id}`)
+      //update the loggedIn varaibel in the localStorage
       localStorage.setItem("loggedIn", "true")
+      //update the userId varaibel in the localStorage
+      localStorage.setItem("userId", validUser.id)
       navigate("/bmi")
+    }else{
+      // show the message if the user info doesn't match
+      console.log('wrong password or email, please try again')
     }
-  }, [userInfo, users])
+  }, [users])
   const logIn = (e) => {
     e.preventDefault()
     const getUsers = async () => {
       try {
-        const response = await fetch("http://localhost:8081/api/users",
+        const response = await fetch("http://localhost:8081/api/users/all",
           {
             method: 'GET',
             headers: {'Content-Type': 'application/json',

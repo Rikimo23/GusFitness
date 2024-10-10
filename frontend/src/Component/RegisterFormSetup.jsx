@@ -10,13 +10,12 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
     const navigate = useNavigate()
     //Fetch the user data from the sign up form
     const getUserInfo = (userInfo) => {
-        const allInfo = {...userInfo, ...newUserInfo}
+        const allInfo = {...newUserInfo, ...userInfo}
         console.table(newUserInfo)
         setNewUserInfo(currentInfo => ({ ...currentInfo, ...allInfo }))
         console.log('heres the new user info')
         console.table(allInfo)
         signUp(allInfo)
-        // setSignUpSubmitted(true)
     }
     //get the bmiInfo from the bmi calculator
     const getBmiInfo = (bmiData) => {
@@ -24,26 +23,13 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
         // register the user only after submitting the sign up form
         if(!signUpSubmitted)
         {
-            // setTimeout(()=>{
-                setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false } })) 
-                // setNewUserInfo((currentData) => ({ ...currentData, ...{bmi: bmiData}}))                
-            // }, 1500)
-           
+            setEnabledForms((oldData) => ({ ...oldData, ...{ signUp: true, bmiCalculator: false } }))
         }
     }
     const signUp = async (userInfo) => {
         console.log("sign up called")
         console.table(userInfo)
-        // try{
-        //     const usersAmountResponse = await fetch("http://localhost:8081/api/users/count") 
-        //     let usersAmount = 0
-        //     if(!usersAmountResponse.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
-        //     else{
-        //         usersAmount = await usersAmountResponse.json()
-        //         console.log(`amount of users: ${usersAmount}`)
-        //     }
-        // }catch(err){console.error(err)}
-        getUsers()
+        const amountOfUsers = getUsers()
 
         try {
             
@@ -57,8 +43,14 @@ export default function RegisterFormSetup({ exitButtonClicked = undefined}) {
             if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
             else{
                 const result = await response.json();
+
+                // update the loggedIn variable in the local storage
                 localStorage.setItem("loggedIn", "true")
+                // update the user Id in the local storage
+                localStorage.setItem("userId", amountOfUsers + 1)
                 setSignUpSubmitted(true)            
+                console.log(`amount of users before updating it: ${amountOfUsers}`)
+                console.log(`amount of users after updating it: ${amountOfUsers+1}`)
                 console.log(result) 
             }
         } catch (error) { console.error(error);}

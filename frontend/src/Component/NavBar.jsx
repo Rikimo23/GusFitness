@@ -27,12 +27,14 @@ export default function NavBar({ navigationLinks }) {
       navigate("/")
     },
     () => {
-      console.log("Profile Deleted")
+      
       setOptionsObject((oldObj) => ({ ...oldObj, ...{ signedIn: false } }))
       if (getUsers() !== -1) {
-        //deletes the user we call for, in this case, the user with id #4
+        //deletes the user we call for, in this case, the user with id #4 
+
         const deleteUser = async () => {
-          const url = `http://localhost:8081/api/users/4`;
+          const userId = localStorage.getItem("userId")
+          const url = `http://localhost:8081/api/users/${userId}`;
 
           try {
             const response = await fetch(url, {
@@ -53,6 +55,9 @@ export default function NavBar({ navigationLinks }) {
             } else {
                 result = await response.text();
             }
+            // update the userId variable to make sure it doesn't stay for the next time someone tries to access it
+            localStorage.setItem("userId", undefined)
+            console.log("Profile Deleted")
         
           } catch (error) {
             console.error('There was a problem with the delete request:', error);

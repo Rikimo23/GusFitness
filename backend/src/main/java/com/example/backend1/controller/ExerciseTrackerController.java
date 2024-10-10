@@ -28,6 +28,7 @@ public class ExerciseTrackerController {
         return ResponseEntity.ok(savedTrackers);
     }
 
+
     @PutMapping("/{id}")
     public ResponseEntity<ExerciseTracker> updateExerciseTracker(@PathVariable Integer id, @RequestBody ExerciseTracker updatedExerciseTracker) {
         Optional<ExerciseTracker> existingExerciseTracker = exerciseTrackerRepository.findById(id);

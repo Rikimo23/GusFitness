@@ -42,34 +42,7 @@ export default function TrackerTemplate() {
     let isSignedIn;
     if(localStorage.getItem("loggedIn") === undefined) isSignedIn = undefined
     else isSignedIn = localStorage.getItem("loggedIn") === "true"
-    const createTrackerData = async()=>{
-      try {
-        const exerciseTrackers = formData.flat().map((data, index) => ({
-          exerciseName: exercises[index], // Adjust this as needed
-          sets: index + 1, // Assign the set number to sets
-          reps: data.reps, // Extract reps from the data
-          weight: data.weight, // Extract weight from the data
-          user: { id: 1 } // Assuming user ID is 1, adjust as needed
-        }));
-  
-        const response = await fetch('http://localhost:8081/api/exerciseTrackers/create', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(exerciseTrackers),
-        });
-  
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        console.log('Submission successful:', result);
-        // Optionally, reset form data or provide feedback
-      } catch (error) {
-        console.error('Error submitting data:', error);
-      }
-    }
+   
     const updateTrackerData = async()=>{
       try {
         const exerciseTrackers = formData.flat().map((data, index) => ({
@@ -77,7 +50,7 @@ export default function TrackerTemplate() {
           sets: index + 1, // Assign the set number to sets
           reps: data.reps, // Extract reps from the data
           weight: data.weight, // Extract weight from the data
-          user: { id: 1 } // Assuming user ID is 1, adjust as needed
+          user: { id: localStorage.getItem("userId") } 
         }));
   
         const response = await fetch(`http://localhost:8081/api/exerciseTrackers/${exerciseTrackers.user.id}`, {
@@ -97,52 +70,55 @@ export default function TrackerTemplate() {
       } catch (error) {
         console.error('Error submitting data:', error);
       }
-
     }
-    if(!isSignedIn) createTrackerData()
+    if(!isSignedIn) alert("WARNING!!\nYou must sign in to upload this data.")
     else updateTrackerData()
     
   };
 
-  const handleFoodSubmit = async (event) => {
+  const handleFoodSubmit = (event) => {
     event.preventDefault();
-    try {
-      const foodPayload = {
-        calories: parseInt(foodData.calories, 10),
-        protein: parseInt(foodData.protein, 10),
-        carbs: parseInt(foodData.carbs, 10),
-        fats: parseInt(foodData.fats, 10),
-        snack1: foodData.snack1,
-        snack2: foodData.snack2,
-        breakfast: foodData.breakfast,
-        lunch: foodData.lunch,
-        dinner: foodData.dinner,
-        snack3: foodData.snack3,
-        user: { id: 1 } // Assuming user ID is 1, adjust as needed
-      };
-  
-      console.log('Submitting food data:', foodPayload); // Log the payload
-  
-      const response = await fetch('http://localhost:8081/api/nutritions/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(foodPayload),
-      });
-  
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Network response was not ok: ${response.statusText} - ${errorText}`);
+    const updateFoodData = async()=>{
+      try {
+        // Create an object with all the food data needed
+        const foodPayload = {
+          calories: parseInt(foodData.calories, 10),
+          protein: parseInt(foodData.protein, 10),
+          carbs: parseInt(foodData.carbs, 10),
+          fats: parseInt(foodData.fats, 10),
+          snack1: foodData.snack1,
+          snack2: foodData.snack2,
+          breakfast: foodData.breakfast,
+          lunch: foodData.lunch,
+          dinner: foodData.dinner,
+          snack3: foodData.snack3,
+          user: { id: parseInt(localStorage.getItem("userId")) } // Assuming user ID is 1, adjust as needed
+        };
+    
+        console.log('Submitting food data:', foodPayload); // Log the payload
+    
+        const response = await fetch(`http://localhost:8081/api/nutritions/users/${foodPayload.user.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(foodPayload),
+        });
+    
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Network response was not ok: ${response.statusText} - ${errorText}`);
+        }
+    
+        const result = await response.json();
+        console.log('Food submission successful:', result);
+        // Optionally, reset form data or provide feedback
+      } catch (error) {
+        console.error('Error submitting food data:', error);
+        alert(`Error submitting food data: ${error.message}`);
       }
-  
-      const result = await response.json();
-      console.log('Food submission successful:', result);
-      // Optionally, reset form data or provide feedback
-    } catch (error) {
-      console.error('Error submitting food data:', error);
-      alert(`Error submitting food data: ${error.message}`);
     }
+    updateFoodData()
   };
   
   return (
