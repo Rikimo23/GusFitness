@@ -8,8 +8,7 @@ function Home() {
    const navigate = useNavigate()
    const signedIn = localStorage.getItem("loggedIn") === "true"? true: false
    const buttonClicked=()=>{
-      navigate('/signup')
-      // setRegisterOpen(true)
+      navigate('/signup')      
    }
    return (
       <>
@@ -34,7 +33,7 @@ function Home() {
                   <p>There is an option to make a account so you can be able to track you're progress.</p>
                </div>
             </SectionComp>
-            {/* {registerOpen && <RegisterFormSetup exitButtonClicked = {exitButtonClicked}/>} */}
+           
          </WrapperComponent>
       </>
 

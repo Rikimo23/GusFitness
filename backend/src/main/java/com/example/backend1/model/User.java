@@ -17,9 +17,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-//    private String firstname;
-//    private String lastname;
-    private String username; //a combination of firstname and lastname
+
+    private String username;
     private String password;
     private String email;
     private Double bmi;
@@ -32,7 +31,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Nutrition> nutritions = new HashSet<>();
 
-//    @ManyToMany (mappedBy = "user", cascade = CascadeType.ALL)
-//    private Set<Exercise> exercises = new HashSet<>();
+
 
 }

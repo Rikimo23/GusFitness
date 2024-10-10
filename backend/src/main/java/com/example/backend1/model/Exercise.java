@@ -25,15 +25,15 @@ public class Exercise {
     private User user;
     private String difficulty;
 
-    // New columns
+
     private boolean easy;
     private boolean medium;
     private boolean hard;
 
-    // URL field
+
     private String url;
 
-    // New column
+
     @ElementCollection
     @CollectionTable(name = "exercise_muscle_groups", joinColumns = @JoinColumn(name = "exercise_id"))
     @Column(name = "muscle_group")

@@ -92,7 +92,7 @@ export default function TrackerTemplate() {
           lunch: foodData.lunch,
           dinner: foodData.dinner,
           snack3: foodData.snack3,
-          user: { id: parseInt(localStorage.getItem("userId")) } // Assuming user ID is 1, adjust as needed
+          user: { id: parseInt(localStorage.getItem("userId")) } // Assuming user ID , adjust as needed
         };
     
         console.log('Submitting food data:', foodPayload); // Log the payload
