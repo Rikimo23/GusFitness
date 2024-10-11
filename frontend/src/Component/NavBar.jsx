@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom";
-import HealthOptionsContainer from "../component/HealthOptionsContainer"
+import HealthOptionsContainer from "../Component/HealthOptionsContainer"
 import DropDownMenu from "../Component/DropDownMenu"
 import { useNavigate } from "react-router-dom"
 import getUsers from '../Component/getUsers';

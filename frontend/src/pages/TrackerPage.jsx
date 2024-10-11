@@ -1,5 +1,5 @@
 import {React, useEffect, useState} from 'react'
-import WrapperComponent from '../component/WrapperComponent'
+import WrapperComponent from '../Component/WrapperComponent'
 import NavBar from '../Component/NavBar'
 import TrackerTemplate from '../Component/TrackerTemplate'
  

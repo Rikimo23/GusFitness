@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {glossary} from "../component/GlossaryDefinitions"
+import {glossary} from "../Component/GlossaryDefinitions"
 export default function GlossaryDefinitionComponent() {
     const [definitions, setDefinitions] = useState([])
     useEffect(()=>{

@@ -1,7 +1,7 @@
 import { React, useEffect, useState, useRef } from 'react'
 import WrapperComponent from '../Component/WrapperComponent'
 import NavBar from '../Component/NavBar'
-import AnatomyMapComponent from '../component/AnatomyMapComponent'
+import AnatomyMapComponent from '../Component/AnatomyMapComponent'
 
 export default function TutorialsPage() {
   /*This keeps track of the body part clicked on the AnatomyComponent. 

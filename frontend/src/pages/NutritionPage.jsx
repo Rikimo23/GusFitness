@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import WrapperComponent from '../component/WrapperComponent'
+import WrapperComponent from '../Component/WrapperComponent'
 import { mealPlans } from '../Component/nutritionPlans'
 import NavBar from '../Component/NavBar'
 export default function NutritionPage() {

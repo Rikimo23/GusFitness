@@ -1,7 +1,7 @@
 import React from 'react'
-import WrapperComponent from '../component/WrapperComponent'
+import WrapperComponent from '../Component/WrapperComponent'
 import NavBar from '../Component/NavBar'
-import ContactUsForm from '../component/ContactUsForm'
+import ContactUsForm from '../Component/ContactUsForm'
 
 export default function ContactUsPage() {
   return (
